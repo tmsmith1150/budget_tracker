@@ -1,7 +1,9 @@
+require("dotenv").config();
+module.exports = 
 {
   "development": {
     "username": "root",
-    "password": "password",
+    "password": process.env.db_password,
     "database": "budgetTracker_db",
     "host": "localhost",
     "dialect": "mysql"
@@ -17,4 +19,4 @@
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
-}
+};
