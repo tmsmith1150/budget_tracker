@@ -9,17 +9,17 @@ var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
 
 if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable]); //heroku enviroment 
+  var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
-  var sequelize = new Sequelize(config.database, config.username, config.password, config); //local database
+  var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-fs //reading an entire folder.
-  .readdirSync(__dirname) //read directory (all the files in this folder and in the filter, it's only getting the javascript file.. checking the extension if it adds an extension and the extension is js, then all the javascript import them and add them to the db)
+fs
+  .readdirSync(__dirname)
   .filter(function(file) {
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
-  .forEach(function(file) { //iterrating through all of the javascript files in this folder (except for index) and then adding them to the db object
+  .forEach(function(file) {
     var model = sequelize['import'](path.join(__dirname, file));
     db[model.name] = model;
   });
@@ -29,8 +29,6 @@ Object.keys(db).forEach(function(modelName) {
     db[modelName].associate(db);
   }
 });
-// table is associated with another table . letting sequelize know which tables are related.
-
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
