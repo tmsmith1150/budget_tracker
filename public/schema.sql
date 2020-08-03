@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS budgetTracker_db;
+DROP DATABASE IF EXISTS budgettracker_db;
 
-CREATE DATABASE budgetTracker_db;
+CREATE DATABASE budgettracker_db;
 
-USE budgetTracker_db;
+USE budgettracker_db;
 
 CREATE TABLE expenses
 (id int NOT NULL AUTO_INCREMENT,
@@ -19,6 +19,7 @@ CREATE TABLE category
 (id int NOT NULL AUTO_INCREMENT,
 category_name varchar(255) NOT NULL,
 user_id int NOT NULL,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 PRIMARY KEY (id)
 );
 
