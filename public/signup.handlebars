@@ -10,40 +10,68 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
+    
+  <!-- <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
       </div>
     </div>
-  </nav>
-  <div class="container">
+  </nav> -->
+  <header id="header" class="header-1">
+    <div id="logo">Logo/Title</div>
+  </header>
+
+<div class="flex-container">
+    <div class="flex-child purple">
+    <div id="wrapper">  
+    <div class="nav-links" class="float-left">
+        <a class="nav-item nav-link" href="signup.handlebars">Sign Up</a>
+        <br>
+        <a class="nav-item nav-link" href="login.handlebars">Log Into Your Account</a>
+        <br>
+        <a class="nav-item nav-link" href="index.handlebars">Manage/Add Expenses</a>
+        <br>
+        <a class="nav-item nav-link" href="overview.handlebars">Overview of Expenses</a>
+        
+    </div>
+    </div>
+    </div>
+
+  <div class="flex-child pink">
+
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <h2>Sign Up Form</h2>
+        <h2 class="form-h2">Sign Up Form</h2>
         <form class="signup">
+
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="email-input" placeholder="Email">
           </div>
+
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="password-input" placeholder="Password">
           </div>
+
           <div style="display: none" id="alert" class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <span class="sr-only">Error:</span> <span class="msg"></span>
           </div>
+
           <button type="submit" class="btn btn-default">Sign Up</button>
         </form>
         <br />
-        <p>Or log in <a href="/login">here</a></p>
+        <p class="alt-link-text">Or log in <a href="/login" class="alt-link">here</a></p>
       </div>
     </div>
   </div>
 
+</div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/signup.js"></script>
-
+ 
 </body>
 
 </html>
