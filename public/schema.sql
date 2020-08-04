@@ -18,6 +18,7 @@ PRIMARY KEY (id)
 CREATE TABLE category
 (id int NOT NULL AUTO_INCREMENT,
 category_name varchar(255) NOT NULL,
+categoryType varchar(100), 
 user_id int NOT NULL,
 PRIMARY KEY (id)
 );
@@ -26,6 +27,8 @@ CREATE TABLE users
 (id int NOT NULL AUTO_INCREMENT,
 email varchar(255) NOT NULL,
 password varchar(255) NOT NULL,
+createdAt date NULL,
+updatedAt date NULL,
 PRIMARY KEY (id)
 );
 
@@ -37,3 +40,4 @@ due_date date,
 user_id int NOT NULL,
 PRIMARY KEY (id)
 );
+
