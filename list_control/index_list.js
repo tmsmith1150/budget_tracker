@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-let Database = require("./async-db");
+const Database = require("./async-db");
 
 const db = new Database({
   host: "localhost",
@@ -13,10 +13,10 @@ const db = new Database({
   Start of calls to the database 
 */
 async function getManagerNames() {
-  let query = "SELECT * FROM employee WHERE manager_id IS NULL";
+  const query = "SELECT * FROM employee WHERE manager_id IS NULL";
 
   const rows = await db.query(query);
-  let employeeNames = [];
+  const employeeNames = [];
   for (const employee of rows) {
     employeeNames.push(employee.first_name + " " + employee.last_name);
   }
@@ -24,10 +24,10 @@ async function getManagerNames() {
 }
 
 async function getRoles() {
-  let query = "SELECT title FROM role";
+  const query = "SELECT title FROM role";
   const rows = await db.query(query);
 
-  let roles = [];
+  const roles = [];
   for (const row of rows) {
     roles.push(row.title);
   }
@@ -36,10 +36,10 @@ async function getRoles() {
 }
 
 async function getDepartmentNames() {
-  let query = "SELECT name FROM department";
+  const query = "SELECT name FROM department";
   const rows = await db.query(query);
 
-  let departments = [];
+  const departments = [];
   for (const row of rows) {
     departments.push(row.name);
   }
@@ -49,16 +49,16 @@ async function getDepartmentNames() {
 
 // Given the name of the department, what is its id?
 async function getDepartmentId(departmentName) {
-  let query = "SELECT * FROM department WHERE department.name=?";
-  let args = [departmentName];
+  const query = "SELECT * FROM department WHERE department.name=?";
+  const args = [departmentName];
   const rows = await db.query(query, args);
   return rows[0].id;
 }
 
 // Given the name of the role, what is its id?
 async function getRoleId(roleName) {
-  let query = "SELECT * FROM role WHERE role.title=?";
-  let args = [roleName];
+  const query = "SELECT * FROM role WHERE role.title=?";
+  const args = [roleName];
   const rows = await db.query(query, args);
   return rows[0].id;
 }
@@ -66,19 +66,19 @@ async function getRoleId(roleName) {
 // need to find the employee.id of the named manager
 async function getEmployeeId(fullName) {
   // First split the name into first name and last name
-  let employee = getFirstAndLastName(fullName);
+  const employee = getFirstAndLastName(fullName);
 
-  let query = 'SELECT id FROM employee WHERE employee.first_name=? AND employee.last_name=?';
-  let args = [employee[0], employee[1]];
+  const query = "SELECT id FROM employee WHERE employee.first_name=? AND employee.last_name=?";
+  const args = [employee[0], employee[1]];
   const rows = await db.query(query, args);
   return rows[0].id;
 }
 
 async function getEmployeeNames() {
-  let query = "SELECT * FROM employee";
+  const query = "SELECT * FROM employee";
 
   const rows = await db.query(query);
-  let employeeNames = [];
+  const employeeNames = [];
   for (const employee of rows) {
     employeeNames.push(employee.first_name + " " + employee.last_name);
   }
@@ -88,7 +88,7 @@ async function getEmployeeNames() {
 async function viewAllRoles() {
   console.log("");
   // SELECT * FROM role;
-  let query = "SELECT * FROM role";
+  const query = "SELECT * FROM role";
   const rows = await db.query(query);
   console.table(rows);
   return rows;
@@ -97,7 +97,7 @@ async function viewAllRoles() {
 async function viewAllDepartmentsAndRole() {
   // SELECT * from department;
 
-  let query = "SELECT * FROM department";
+  const query = "SELECT * FROM department";
   const rows = await db.query(query);
   console.table(rows);
 }
@@ -106,7 +106,7 @@ async function viewAllEmployees() {
   console.log("");
 
   // SELECT * FROM employee;
-  let query = "SELECT * FROM employee";
+  const query = "SELECT * FROM employee";
   const rows = await db.query(query);
   console.table(rows);
 }
@@ -114,20 +114,20 @@ async function viewAllEmployees() {
 async function viewAllEmployeesByDepartmentAndRoles() {
   // View all employees by department
   console.log("");
-  let query = "SELECT first_name, last_name, department.name, role.title FROM ((employee INNER JOIN role ON role_id = role.id) INNER JOIN department ON department_id = department.id) ;";
+  const query = "SELECT first_name, last_name, department.name, role.title FROM ((employee INNER JOIN role ON role_id = role.id) INNER JOIN department ON department_id = department.id) ;";
   const rows = await db.query(query);
   console.table(rows);
 }
 
 function getFirstAndLastName(fullName) {
-  let employee = fullName.split(" ");
+  const employee = fullName.split(" ");
   if (employee.length == 2) {
     return employee;
   }
 
   const last_name = employee[employee.length - 1];
-  let first_name = " ";
-  for (let i = 0; i < employee.length - 1; i++) {
+  const first_name = " ";
+  for (const i = 0; i < employee.length - 1; i++) {
     first_name = first_name + employee[i] + " ";
   }
   return [first_name.trim(), last_name];
@@ -137,18 +137,18 @@ async function updateEmployeeRole(employeeInfo) {
   const roleId = await getRoleId(employeeInfo.role);
   const employee = getFirstAndLastName(employeeInfo.employeeName);
 
-  let query = 'UPDATE employee SET role_id=? WHERE employee.first_name=? AND employee.last_name=?';
-  let args = [roleId, employee[0], employee[1]];
+  const query = 'UPDATE employee SET role_id=? WHERE employee.first_name=? AND employee.last_name=?';
+  const args = [roleId, employee[0], employee[1]];
   const rows = await db.query(query, args);
   console.log(`Updated employee ${employee[0]} ${employee[1]} with role ${employeeInfo.role}`);
 }
 
 async function addEmployee(employeeInfo) {
-  let roleId = await getRoleId(employeeInfo.role);
-  let managerId = await getEmployeeId(employeeInfo.manager);
+  const roleId = await getRoleId(employeeInfo.role);
+  const managerId = await getEmployeeId(employeeInfo.manager);
 
-  let query = "INSERT into employee (first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)";
-  let args = [employeeInfo.first_name.trim(), employeeInfo.last_name.trim(), roleId, managerId];
+  const query = "INSERT into employee (first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)";
+  const args = [employeeInfo.first_name.trim(), employeeInfo.last_name.trim(), roleId, managerId];
   const rows = await db.query(query, args);
   console.log(`Added employee ${employeeInfo.first_name} ${employeeInfo.last_name}.`);
 }
@@ -156,16 +156,16 @@ async function addEmployee(employeeInfo) {
 
 async function removeEmployee(employeeInfo) {
   const employeeName = getFirstAndLastName(employeeInfo.employeeName);
-  let query = "DELETE from employee WHERE first_name=? AND last_name=?";
-  let args = [employeeName[0], employeeName[1]];
+  const query = "DEconstE from employee WHERE first_name=? AND last_name=?";
+  const args = [employeeName[0], employeeName[1]];
   const rows = await db.query(query, args);
   console.log(`Employee removed: ${employeeName[0]} ${employeeName[1]}`);
 }
 
 async function addDepartment(departmentInfo) {
   const departmentName = departmentInfo.departmentName;
-  let query = 'INSERT into department (name) VALUES (?)';
-  let args = [departmentName];
+  const query = 'INSERT into department (name) VALUES (?)';
+  const args = [departmentName];
   const rows = await db.query(query, args);
   console.log(`Added department named ${departmentName}`);
 }
@@ -174,8 +174,8 @@ async function addRole(roleInfo) {
   const departmentId = await getDepartmentId(roleInfo.departmentName);
   const salary = roleInfo.salary;
   const title = roleInfo.roleName;
-  let query = 'INSERT into role (title, salary, department_id) VALUES (?,?,?)';
-  let args = [title, salary, departmentId];
+  const query = 'INSERT into role (title, salary, department_id) VALUES (?,?,?)';
+  const args = [title, salary, departmentId];
   const rows = await db.query(query, args);
   console.log(`Added role ${title}`);
 }
@@ -324,7 +324,7 @@ async function getUpdateEmployeeRoleInfo() {
 }
 
 async function main() {
-  let exitLoop = false;
+  const exitLoop = false;
   while (!exitLoop) {
     const prompt = await mainPrompt();
 
