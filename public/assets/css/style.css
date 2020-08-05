@@ -3,6 +3,9 @@ form.login {
   margin-top: 50px;
 }
 
+* {
+  font-family: 'Poppins', sans-serif;
+}
 body {
   background: url("https://miro.medium.com/max/4146/1*vKIJ_3TVLy_D1rX30ZgpXw.png");
   -webkit-background-size: cover;
@@ -12,44 +15,80 @@ body {
   background-repeat: no-repeat;
   background-color: turquoise;
 }
+
+
+
+.navbar-brand {
+  color: blue;
+  font-size: 20px;
+}
+
+
 #page-container {
   position: relative;
   min-height: 100vh;
 }
+
+
+
 #header {
   background-color: rgb(40, 161, 201);
   width: 100%;
   height: 100px;
 }
+
+
+
 #logo {
   margin-left: 40%;
   color: white;
   font-size: 70px;
+  text-align: center;
 }
-.nav-item {
+
+
+
+/* .nav-item {
   color: white;
   font-size: 30px;
-}
+} */
+
+
+
 .nav-links {
   margin-top: 10%;
   margin-left: 5%;
 }
+
+
+
 #form-input {
   width: 500px;
   margin-left: 38%;
 }
+
+
+
 .input-group {
   height: 40px;
 }
+
+
+
 .form-control {
   font-size: 20px;
 }
+
+
+
 .btn {
   width: 130px;
   height: 45px;
   background-color: rgb(40, 161, 201);
   font-size: 20px;
 }
+
+
 
 #expenses-chart {
   width: 450px;
@@ -59,6 +98,9 @@ body {
   margin-left: 32%;
   margin-bottom: 10%;
 }
+
+
+
 #pie-chart {
   width: 250px;
   height: 250px;
@@ -67,10 +109,16 @@ body {
   margin-top: 5%;
   margin-right: 10%;
 }
+
+
+
 .exp-cht {
   font-size: 20px;
   width: 400px;
 }
+
+
+
 
 #footer {
   background-color: rgb(40, 161, 201);
@@ -79,10 +127,16 @@ body {
   width: 100%;
   height: 2.5rem;
 }
+
+
+
 .row {
   margin-left: 20%;
   margin-top: 10%;
 }
+
+
+
 #wrapper {
   width: 300px;
   height: 400px;
@@ -90,18 +144,30 @@ body {
   margin-top: 1%;
   margin-left: 5%;
 }
+
+
+
 .alt-link {
   font-size: 20px;
   color: rgb(40, 161, 201);
 }
+
+
+
 .alt-link-text {
   font-size: 20px;
   color: white;
 }
+
+
+
 .form-group {
   color: white;
   font-size: 20px;
 }
+
+
+
 .form-h2 {
   color: white;
   font-size: 35px;
