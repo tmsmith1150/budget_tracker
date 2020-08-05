@@ -7,7 +7,7 @@ form.login {
   font-family: 'Poppins', sans-serif;
 }
 body {
-  background: url("https://miro.medium.com/max/4146/1*vKIJ_3TVLy_D1rX30ZgpXw.png");
+  /* background: url("https://miro.medium.com/max/4146/1*vKIJ_3TVLy_D1rX30ZgpXw.png"); */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -40,18 +40,10 @@ body {
 
 
 #logo {
-  margin-left: 40%;
   color: white;
   font-size: 70px;
   text-align: center;
 }
-
-
-
-/* .nav-item {
-  color: white;
-  font-size: 30px;
-} */
 
 
 
@@ -89,6 +81,15 @@ body {
 }
 
 
+#dsply-all-ctgy {
+    width: 600px;
+    height: 600px;
+    background-color: grey;
+    margin-top: 10%;
+    margin-left: 30%;
+}
+
+
 
 #expenses-chart {
   width: 450px;
@@ -119,30 +120,9 @@ body {
 
 
 
-
-#footer {
-  background-color: rgb(40, 161, 201);
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
-}
-
-
-
 .row {
-  margin-left: 20%;
-  margin-top: 10%;
-}
-
-
-
-#wrapper {
-  width: 300px;
-  height: 400px;
-  float: left;
-  margin-top: 1%;
   margin-left: 5%;
+  margin-top: 10%;
 }
 
 
@@ -156,19 +136,19 @@ body {
 
 .alt-link-text {
   font-size: 20px;
-  color: white;
+  color: black;
 }
 
 
 
 .form-group {
-  color: white;
-  font-size: 20px;
+  color: black;
+  font-size: 20px;;
 }
 
 
 
 .form-h2 {
-  color: white;
+  color: black;
   font-size: 35px;
 }

@@ -1,73 +1,98 @@
 <header id="header" class="header-1">
-  <div id="logo">BUDGET TRACKER</div>
-</header>
-
-  <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand"> 
-    <a class="nav-item nav-link" href="signup">Sign Up</a>
-    <a class="nav-item nav-link" href="login">Log Into Your Account</a>
-    <a class="nav-item nav-link" href="index">Manage/Add Expenses</a>
-    <a class="nav-item nav-link" href="overview">Overview of Expenses</a>
-  </a>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-</nav>
-<br>
-<br>
-<br>
-<div class = "MonthPicker">
-  <div class = "MonthPicker-prev">
-    <div class = "MonthPicker-months">
-      <div class = "MonthPicker-next">
-      </div>
-    </div>
-  </div>
-</div>
-<!-- <div id="pie-chart" class="pie">Pie Chart</div> -->
-<container id="page-container">
-
-
-
-  <form id="form-input" class="form-1">
-
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
-      </div>
-      <input type="text" class="form-control" placeholder="Category" aria-label="Category"
-        aria-describedby="basic-addon1">
-    </div>
-
-
-    <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Expense" aria-label="Recipient's username"
-        aria-describedby="basic-addon2">
-      <div class="input-group-append">
-        <span class="input-group-text form-control" id="basic-addon2">0.00</span>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Pay
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Pay</a>
-            <a class="dropdown-item" href="#">PlaceHolder</a>
-            <a class="dropdown-item" href="#">PlaceHolder2</a>
-          </div>
-          <button id="btn-add-expense" class="btn">Add</button>
+    <div id="logo">BUDGET TRACKER</div>
+  </header>
+  
+    <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand"> 
+      <a class="nav-item nav-link" href="signup">Sign Up</a>
+      <a class="nav-item nav-link" href="login">Log Into Your Account</a>
+      <a class="nav-item nav-link" href="index">Manage/Add Expenses</a>
+      <a class="nav-item nav-link" href="overview">Overview of Expenses</a>
+    </a>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    </nav>
+  <br>
+  <br>
+  <br>
+  <div class = "MonthPicker">
+    <div class = "MonthPicker-prev">
+      <div class = "MonthPicker-months">
+        <div class = "MonthPicker-next">
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-  </form>
-
-
-
-</container>
+  </div>
+  <!-- <div id="pie-chart" class="pie">Pie Chart</div> -->
+  <container id="page-container">
+  
+  
+  
+    <form id="form-input" class="form-1">
+  
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        </div>
+        <input id="category-name" type="text" class="form-control" placeholder="Category" aria-label="Category"
+          aria-describedby="basic-addon1">
+        <div class="dropdown">
+            <button id="category-type" class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Select
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#" value="budget">Budget</a>
+              <a class="dropdown-item" href="#" value="cash">Cash</a>
+              <a class="dropdown-item" href="#" value="savings">Savings</a>
+              <a class="dropdown-item" href="#" value="expenses">Expenses</a>
+            </div>  
+      </div>
+  
+  
+      <div class="input-group mb-3">
+        <input id="expense-name" type="text" class="form-control" placeholder="Expense Name" aria-label="Recipient's username"
+          aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <span class="input-group-text form-control" id="basic-addon2">0.00</span>
+  
+          
+            <button id="btn-add-expense" class="btn">Add</button>
+          </div>
+        </div>
+      </div>
+  
+    </form>
+  
+    <div id="dsply-all-ctgy">write code to loop through tables and display
+      <div class="panel panel-default col-md-5" style="padding: 0px">
+      <div class="panel-heading">
+        <h3>Budget!</h3>
+      </div>
+      <div class="panel-body" id="{{setID}}">
+        
+        <div class="category-name-title"><span>{{setcategoryName}}</span></div>
+        
+        <ul>
+          {{#each expense}}
+            {{#unless this.categoryName}}
+              <li>
+                {{this.id}}<span>.</span> {{this.expense_name.amount}}
+  
+                <form action="/{{this.id}}?_method=PUT" method="POST">
+                  <input type="hidden" name="devour" value="true">
+                  <button type="submit" class="btn btn-warning btn-sm">Delete</button>
+                </form>
+              </li>
+            {{/unless}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    </div>
+  
+    
+  
+  
+  </container>

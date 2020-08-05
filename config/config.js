@@ -4,13 +4,13 @@ module.exports =
   "development": {
     "username": "root",
     "password": process.env.db_password,
-    "database": "budgettracker_db",
+    "database": "budgetTracker_db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "password",
+    "password": "Queen1tj",
     "database": "database_test",
     "host": "localhost",
     "dialect": "mysql"
