@@ -1,4 +1,4 @@
-$(document).ready(function() {
+  $(document).ready(function() {
 
   var formInput = $("form-input");
   var categorieName = $("category-name");
@@ -101,9 +101,9 @@ $(document).ready(function() {
 
 
 
- }
+ 
 
 
 
 
-})
+});
