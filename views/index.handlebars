@@ -35,23 +35,26 @@
         <div class="input-group mb-3">
           <div class="input-group-prepend">
           </div>
-          <input id="category-name" type="text" class="form-control" placeholder="Category" aria-label="Category"
+          <input id="category-name" type="text" class="form-control" placeholder="Category Name" aria-label="Category"
+            aria-describedby="basic-addon1">
+            <br>
+            <input id="category-type" type="text" class="form-control" placeholder="Category Type" aria-label="Category"
             aria-describedby="basic-addon1">
           <div class="dropdown">
-            <button id="category-type" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+            <button id="drop-down-tog" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               Select
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#" value="budget">Budget</a>
-              <a class="dropdown-item" href="#" value="cash">Cash</a>
-              <a class="dropdown-item" href="#" value="savings">Savings</a>
-              <a class="dropdown-item" href="#" value="expenses">Expenses</a>
+              <a class="dropdown-item" value="budget">Budget</a>
+              <a class="dropdown-item" value="cash">Cash</a>
+              <a class="dropdown-item" value="savings">Savings</a>
+              <a class="dropdown-item" value="expenses">Expenses</a>
             </div>
           </div>
 
 
-          <div class="input-group mb-3">
+          <div id="exp-input" class="input-group mb-3">
             <input id="expense-name" type="text" class="form-control" placeholder="Expense Name"
               aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
@@ -101,24 +104,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div id="pie-chart" class="pie">Pie Chart</div> -->
-<container id="page-container">
-
-
-
-
-
-
-
 </container>
+
+<script src="script.js"></script>
