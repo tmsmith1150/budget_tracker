@@ -1,14 +1,14 @@
   $(document).ready(function() {
 
-  var formInput = $("form-input");
-  var categorieName = $("category-name");
-  var categorieType = $("category-type");
-  var expenseName = $("expense-type");
-  var expenseAmount = $("basic-addon2");
-  var dropDownBtn = $("drop-down-tog");
-  var addExpBtn = $("btn-add-expense");
+  var formInput = $("#form-input");
+  var categorieName = $("#category-name");
+  var categorieType = $("#category-type");
+  var expenseName = $("#expense-name");
+  var expenseAmount = $("#basic-addon2");
+  var dropDownBtn = $("#drop-down-tog");
+  // var addExpBtn = $();
 
-  $(addExpBtn).on("click", handleFormInput);
+  $("#btn-add-expense").on("click", handleFormInput);
 
 
   // Gets the part of the url that comes after the "?" (which we have if we're   updating a post)
@@ -30,38 +30,39 @@
   }
 
   // Getting the authors, and their posts
-  getCategories();
+  //getCategories();
 
 
 
  function handleFormInput(event) {
      event.preventDefault();
+     console.log("handle form input function")
      // Wont submit the post if we are missing a category name, category type, exp name, or exp amount.
     if (!categorieName.val().trim() || !categorieType.val().trim() || !expenseName.val().trim() || !expenseAmount.val()) {
-        return;
+      
+      alert("you must enter a complete form");
+      
+      return;
       }
      
     // Constructing a newExpense object to hand to the database
     var newExpense = {
-        expenseName: expenseName
-          .val()
-          .trim(),
-        amount: expenseAmount
-          .val()
-          .trim(),
+        expenseName: expenseName.val().trim(),
+        amount: expenseAmount.val().trim(),
         categorieId: categorieSelect.val()
       };
-  
+
+    console.log(newExpense);
       // If we're updating a post run updatePost to update a post
     // Otherwise run submitPost to create a whole new post
-    if (updating) {
-        newExpense.id = expenseId;
-        updateExpense(newExpense);
-      }
-      else {
-        submitExpense(newExpense);
-      }
-    }
+    // if (updating) {
+    //     newExpense.id = expenseId;
+    //     updateExpense(newExpense);
+    //   }
+    //   else {
+    //     submitExpense(newExpense);
+    //   }
+}
    
     // Submits a new post and brings user to blog page upon completion
   function submitExpense(post) {
