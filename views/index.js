@@ -4,7 +4,7 @@
   var categorieName = $("category-name");
   var categorieType = $("category-type");
   var expenseName = $("expense-type");
-  var expenseAmount = $("basic-addon2");
+  var expenseAmount = $("expense-amount");
   var dropDownBtn = $("drop-down-tog");
   var addExpBtn = $("btn-add-expense");
 
