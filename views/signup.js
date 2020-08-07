@@ -1,7 +1,7 @@
 $(document).ready(function() {
     // Getting references to the email input 
-    var newUser = $("email-input");
-    var signUpBtn = $("sign-up-btn");
+    var newUser = $("#email-input");
+    var signUpBtn = $("#sign-up-btn");
     
     // Adding event listener to the form to create a new object
     $(signUpBtn).on("click", "#email-input", handleNewUser);
@@ -29,6 +29,6 @@ $(document).ready(function() {
     // A function for creating a user. Calls createNewUser upon completion
     function createNewUser(newUser) {
       $.post("/api/signup", newUser)
-        .then(createNewUser);
+        .then(res => console.log(res));
     }
 });
