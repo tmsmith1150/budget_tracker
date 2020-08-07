@@ -6,6 +6,9 @@
   </header>
 
 
+    {{!-- added button and div for stock api --}}
+  <button id="stockBtn">Check Stocks</button>
+  <div id="stockNum">Stocks</div>
 
 
   <nav class="navbar navbar-light bg-light">
@@ -28,17 +31,13 @@
   </nav>
 
 
-  <div class="jumbotron jumbotron-fluid">
 
       <form id="form-input" class="form-1">
-
+        <div>Add Expense</div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
           </div>
-          <input id="category-name" type="text" class="form-control" placeholder="Category Name" aria-label="Category"
-            aria-describedby="basic-addon1">
-            <br>
-            <input id="category-type" type="text" class="form-control" placeholder="Category Type" aria-label="Category"
+          <input id="category-type" type="text" class="form-control" placeholder="Category Name" aria-label="Category"
             aria-describedby="basic-addon1">
           <div class="dropdown">
             <button id="drop-down-tog" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
@@ -53,54 +52,40 @@
             </div>
           </div>
 
-
           <div id="exp-input" class="input-group mb-3">
             <input id="expense-name" type="text" class="form-control" placeholder="Expense Name"
               aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-              <span class="input-group-text form-control" id="basic-addon2">0.00</span>
-
-
-              <button id="btn-add-expense" class="btn">Add</button>
-            </div>
           </div>
+
+          <div id="exp-input" class="input-group mb-3">
+            <input id="expense-amount" type="text" class="form-control" placeholder="0.00"
+              aria-label="Recipient's username" aria-describedby="basic-addon2">
+          </div>
+
+          <div id="exp-input" class="input-group mb-3">
+            <input id="bill-date" type="text" class="form-control" placeholder="Due Date"
+              aria-label="Recipient's username" aria-describedby="basic-addon2">
+          </div>
+
+          <button id="btn-add-expense" class="btn">Add</button>
         </div>
 
       </form>
 
-      <div id="dsply-all-ctgy">write code to loop through tables and display
-        <div class="panel panel-default col-md-5" style="padding: 0px">
-          <div class="panel-heading">
-            <h3>Budget!</h3>
-          </div>
-          <div class="panel-body" id="{{setID}}">
 
-            <div class="category-name-title"><span>{{setcategoryName}}</span></div>
 
-            <ul>
-              {{#each expense}}
-              {{#unless this.categoryName}}
-              <li>
-                {{this.id}}<span>.</span> {{this.expense_name.amount}}
-
-                <form action="/{{this.id}}?_method=PUT" method="POST">
-                  <input type="hidden" name="devour" value="true">
-                  <button type="submit" class="btn btn-warning btn-sm">Delete</button>
-                </form>
-              </li>
-              {{/unless}}
-              {{/each}}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+      
 
 
 
-</div>
+
+    </div> jumbotron
+  
+</div> container
+
+
+
+
 
 
 
