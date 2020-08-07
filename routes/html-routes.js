@@ -6,7 +6,7 @@ module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the overview page
     if (req.user) {
-      res.redirect("/overview");
+      // res.redirect("/overview");
     }
     res.render("login");
   });
@@ -14,7 +14,7 @@ module.exports = function(app) {
   app.get("/login", (req, res) => {
     // If the user already has an account send them to the overview page
     if (req.user) {
-      res.redirect("/overview");
+      // res.redirect("/overview");
     }
     res.render("login");
   });
@@ -22,7 +22,7 @@ module.exports = function(app) {
   app.get("/signup", (req, res) => {
     // If the user already has an account send them to the overview page
     if (req.user) {
-      res.redirect("/overview");
+      // res.redirect("/overview");
     }
     res.render("signup");
   });
@@ -30,7 +30,7 @@ module.exports = function(app) {
   app.get("/index", (req, res) => {
     // If the user already has an account send them to the overview page
     if (req.user) {
-      res.redirect("/overview");
+      // res.redirect("/overview");
     }
     res.render("index");
   });
@@ -38,9 +38,9 @@ module.exports = function(app) {
   app.get("/overview", (req, res) => {
     // If the user already has an account send them to the overview page
     if (req.user) {
-      res.redirect("/overview");
+      // res.redirect("/overview");
     }
-    res.render("overview");
+    res.render("overview", {});
   });
 
   // Here we've add our isAuthenticated middleware to this route.

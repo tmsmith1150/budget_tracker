@@ -29,7 +29,7 @@ $(document).ready(() => {
       password: password
     })
       .then(() => {
-        window.location.replace("/overview");
+        // window.location.replace("/overview");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
