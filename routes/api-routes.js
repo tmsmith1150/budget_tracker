@@ -54,13 +54,13 @@ module.exports = function(app) {
 
 // BILL Functionality
 // Route for getting data for bills
-app.get("/api/overview", function(req, res) {
-  // findAll returns all entries for a table when used with no options
-  db.Bill.findAll({where: {userID: req.user.id},}).then(function(dbBill) {
-    // We have access to the Bills as an argument inside of the callback function
-    res.render(dbBill);
-  });
-});
+// app.get("/api/overview", function(req, res) {
+//   // findAll returns all entries for a table when used with no options
+//   db.Bill.findAll({where: {userID: req.user.id},}).then(function(dbBill) {
+//     // We have access to the Bills as an argument inside of the callback function
+//     res.render(dbBill);
+//   });
+// });
 
 // Route for deleting Bill pnce paid
 app.delete("/api/overview/deletebill/:id", function(req, res) {
@@ -83,14 +83,17 @@ app.delete("/api/overview/deletebill/:id", function(req, res) {
   app.post("/api/index/postbill", function(req, res) {
     // create takes an argument of an object describing the Bill we want to
     // insert into our table. 
+    console.log(req.body)
+    console.log(req.user)
+    console.log("Add Bill 2")
     db.Bill.create({
-      billName: req.body.name,
+      billName: req.body.billName,
       website: req.body.website,
       dueDate: req.body.dueDate,
-      userId: req.params.id
+      userId: req.user.id
     })
     .then(() => {
-      res.redirect(307, "/api/index");
+      res.redirect("/api/index");
     })
     .catch(err => {
       res.status(401).json(err);
