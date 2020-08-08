@@ -10,9 +10,6 @@
   var addExpBtn = $("#btn-add-category");
   var addBillBtn = $("#btn-add-bill");
   var formInput = $("start");
-  var formOne = $(".form-1");
-  var formTwo = $(".form-2");
-  var formThree = $(".form-3");
   var categories = $("#form-input")
   const addBillForm = $("form.billInfo");
   const billInputName = $("input#billInputName");
@@ -27,14 +24,15 @@
     const billData = {
       billName: billInputName.val().trim(),
       website: billInputWebsite.val().trim(),
-      dueDate: billInputDate.val().trim(),
+      dueDate: billInputDate.val().trim()
     };
     // If we have an email and password, run the signUpUser function
     addBill(billData.billName, billData.website,billData.dueDate);
     billInputName.val("");
     billInputWebsite.val("");
-    billInputDate.val("");
+    billInputDate.val("")
   });
+
 
   // Does a post to the signup route. If successful, we are redirected to the overview page
   // Otherwise we log any errors
@@ -57,6 +55,38 @@
     $("#alert").fadeIn(500);
   }
 
+  const addCategoryForm = $("form.categoryInfo");
+  const categoryInputName = $("input#categoryInputName");
+  const categoryInputType = $("select#categoryInputType");
+
+   // When the signup button is clicked, we validate the email and password are not blank
+   addCategoryForm.on("submit", event => {
+    event.preventDefault();
+    console.log("Input: " + categoryInputType)
+    const categoryData = {
+      categoryName: categoryInputName.val().trim(),
+      categoryType: categoryInputType.val()
+    };
+    console.log(categoryData)
+    // If we have an email and password, run the signUpUser function
+    addCategory(categoryData.categoryName, categoryData.categoryType);
+    categoryInputName.val("");
+    categoryInputType.val("");
+  });
+
+  // Otherwise we log any errors
+  function addCategory(categoryName, categoryType) {
+    console.log("Add Category")
+    $.post("/api/index/postCategory", {
+      categoryName: categoryName,
+      categoryType: categoryType
+    })
+      .then(() => {
+        // window.location.replace("/overview");
+        // If there's an error, handle it by throwing up a bootstrap alert
+      })
+      .catch(handleLoginErr);
+  }
 
 
 //   $(addExpBtn).on("click", handleFormInput);
