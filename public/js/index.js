@@ -1,19 +1,19 @@
   $(document).ready(function() {
 
-  var formInput = $("form-input");
-  var categorieName = $("category-name");
-  var categorieType = $("category-type");
-  var expenseName = $("expense-type");
-  var expenseAmount = $("expense-amount");
-  var dropDownBtn = $("drop-down-tog");
-  var addExpBtn = $("btn-add-expense");
-  var addExpBtn = $("btn-add-category");
+  var formInput = $("#form-input");
+  var categorieName = $("#category-name");
+  var categorieType = $("#category-type");
+  var expenseName = $("#expense-name");
+  var expenseAmount = $("#expense-amount");
+  var dropDownBtn = $("#drop-down-tog");
+  var addExpBtn = $("#btn-add-expense");
+  var addExpBtn = $("#btn-add-category");
   var addExpBtn = $("btn-add-bill");
   var formInput = $("start");
-  var formOne = $("form-1");
-  var formTwo = $("form-2");
-  var formThree = $("form-3");
-  var categories = $("form-input")
+  var formOne = $(".form-1");
+  var formTwo = $(".form-2");
+  var formThree = $(".form-3");
+  var categories = $("#form-input")
 
 
 
@@ -40,7 +40,7 @@
   }
 
   // Getting the authors, and their posts
-  getCategories();
+  getExpenses();
 
 
 
@@ -48,30 +48,29 @@
      event.preventDefault();
      // Wont submit the post if we are missing a category name, category type, exp name, or exp amount.
     if (!categorieName.val().trim() || !categorieType.val().trim() || !expenseName.val().trim() || !expenseAmount.val()) {
+
+      alert("you must enter a complete form");
         return;
       }
      
     // Constructing a newExpense object to hand to the database
     var newExpense = {
-        expenseName: expenseName
-          .val()
-          .trim(),
-        amount: expenseAmount
-          .val()
-          .trim(),
+        expenseName: expenseName.val().trim(),
+        amount: expenseAmount.val().trim(),
         categorieId: categorieSelect.val()
       };
   
+      console.log(newExpense);
       // If we're updating a post run updatePost to update a post
     // Otherwise run submitPost to create a whole new post
-    if (updating) {
-        newExpense.id = expenseId;
-        updateExpense(newExpense);
-      }
-      else {
-        submitExpense(newExpense);
-      }
-    }
+    // if (updating) {
+    //     newExpense.id = expenseId;
+    //     updateExpense(newExpense);
+    //   }
+    //   else {
+    //     submitExpense(newExpense);
+    //   }
+    // }
    
     // Submits a new post and brings user to blog page upon completion
   function submitExpense(post) {
@@ -93,9 +92,12 @@
     default:
       return;
     }
+
+    // a little lost here
+
     $.get(queryUrl, function(data) {
       if (data) {
-        console.log(data.AuthorId || data.id);
+        console.log(data.ExpenseId || data.id);
         // If this post exists, prefill our cms forms with its data
         titleInput.val(data.title);
         bodyInput.val(data.body);
@@ -106,7 +108,11 @@
       }
     });
   }
-});
+  // A function to get Expenses and then render our list of Authors
+  function getExpenses() {
+    $.get("/api/index", renderExpensesList);
+  }
+}
 
 
 
@@ -120,3 +126,4 @@ function startGame(){
     setNextQuestion(); 
     quizInProgress = true;
     }
+});
