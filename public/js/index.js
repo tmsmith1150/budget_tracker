@@ -15,7 +15,9 @@
   const billInputName = $("input#billInputName");
   const billInputWebsite = $("input#billInputWebsite");
   const billInputDate = $("input#billInputDate");
-
+  const addCategoryForm = $("form.categoryInfo");
+  const categoryInputName = $("input#categoryInputName");
+  const categoryInputType = $("select#categoryInputType");
 
 
  // When the signup button is clicked, we validate the email and password are not blank
@@ -55,9 +57,7 @@
     $("#alert").fadeIn(500);
   }
 
-  const addCategoryForm = $("form.categoryInfo");
-  const categoryInputName = $("input#categoryInputName");
-  const categoryInputType = $("select#categoryInputType");
+  
 
    // When the signup button is clicked, we validate the email and password are not blank
    addCategoryForm.on("submit", event => {
@@ -87,6 +87,48 @@
       })
       .catch(handleLoginErr);
   }
+
+  const addExpenseForm = $("form.expenseInfo");
+  const expenseInputName = $("input#expenseInputName");
+  const expenseInputAmount = $("input#expenseInputAmount");
+  const expenseInputDate = $("input#expenseInputDate");
+  const expenseInputType = $("select#expenseInputCategory");
+
+   // When the signup button is clicked, we validate the email and password are not blank
+   addExpenseForm.on("submit", event => {
+    event.preventDefault();
+    console.log("Click")
+    const expenseData = {
+      expenseName: expenseInputName.val().trim(),
+      expenseAmount: expenseInputAmount.val().trim(),
+      expenseDate: expenseInputDate.val().trim(),
+      expenseType: expenseInputType.val()
+    };
+    console.log(expenseData)
+    // If we have an email and password, run the signUpUser function
+    addExpense(expenseData.expenseName, expenseData.expenseAmount, expenseData.expenseDate, expenseData.expenseType);
+    expenseInputName.val("");
+    expenseInputAmount.val("");
+    expenseInputDate.val("");
+    expenseInputType.val("");
+  });
+
+  // Otherwise we log any errors
+  function addExpense(expenseName, expenseAmount,expenseDate,expenseType) {
+    console.log("Add Expense")
+    $.post("/api/index/postexpense", {
+      expenseName: expenseName,
+      expenseAmount: expenseAmount,
+      expenseDate: expenseDate,
+      expenseType: expenseType
+    })
+      .then(() => {
+        // window.location.replace("/overview");
+        // If there's an error, handle it by throwing up a bootstrap alert
+      })
+      .catch(handleLoginErr);
+  }
+
 
 
 //   $(addExpBtn).on("click", handleFormInput);
