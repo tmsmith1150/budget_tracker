@@ -22,11 +22,42 @@ body {
   background-color: turquoise;
 }
 
+.col-md {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
 /* .containerPage {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 } */
 
-.jumbotron {
+
+
+.jumbotronIndex {
+  height: 1000px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.jumbotronLogin {
+  height: 1000px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.jumbotronSignup {
+  height: 1000px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.jumbotronOverview {
   height: 500px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: white;
@@ -77,15 +108,28 @@ body {
 }
 
 #form-input {
-  width: 400px;
-  margin-left: 38%;
+  width: 500px;
+  color: black;
+  font-size: 20px;
   text-align: center;
   justify-content: center;
+  text-align: center;
+  justify-content: center;
+  /* position: absolute; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 40px;
+  top: 0;
+  height: 100%;
+  /* width: 50%; */
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
 }
 
-.input-group {
+/* .input-group {
   height: 40px;
-}
+} */
 
 .form-control {
   font-size: 20px;
@@ -113,6 +157,14 @@ body {
 }
 
 #exp-input {
+  margin-top: 10px;
+}
+
+#category-input {
+  margin-top: 10px;
+}
+
+#bill-input {
   margin-top: 10px;
 }
 
@@ -183,14 +235,6 @@ body {
   );
 }
 
-.box {
-  color: linear-gradient(
-    309deg,
-    rgba(7, 223, 175, 0.9724264705882353) 17%,
-    rgba(8, 237, 233, 1) 66%
-  ) !important;
-}
-
 #email-input {
   text-align: center;
   justify-content: center;
@@ -199,4 +243,14 @@ body {
 .input {
   text-align: center;
   justify-content: center;
+}
+
+.tab {
+  display: none;
+}
+
+
+
+.hide {
+  display: none;
 }

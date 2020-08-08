@@ -2,13 +2,9 @@
 
   <header id="header" class="header-1">
     <img src="../assets/css/images/budget_tracker_wordmark.svg" width="700" alt="budgetTrackerLogo"
-      style="display: block; margin-left: auto; margin-right: auto; padding-top: 8px;" onclick="window.location.href='overview'" />
+      style="display: block; margin-left: auto; margin-right: auto; padding-top: 8px;"
+      onclick="window.location.href='/overview'" />
   </header>
-
-
-    {{!-- added button and div for stock api --}}
-  <button id="stockBtn">Check Stocks</button>
-  <div id="stockNum">Stocks</div>
 
 
   <nav class="navbar navbar-light bg-light">
@@ -20,7 +16,7 @@
     </a>
     <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-     <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><svg width="1em" height="1em"
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><svg width="1em" height="1em"
           viewBox="0 0 16 16" class="bi bi-search btn-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
             d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
@@ -31,57 +27,142 @@
   </nav>
 
 
+  <div class="jumbotron jumbotron-fluid jumbotronIndex">
 
-      <form id="form-input" class="form-1">
-        <div>Add Expense</div>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-          </div>
-          <input id="category-type" type="text" class="form-control" placeholder="Category Name" aria-label="Category"
-            aria-describedby="basic-addon1">
-          <div class="dropdown">
-            <button id="drop-down-tog" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Select
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" value="budget">Budget</a>
-              <a class="dropdown-item" value="cash">Cash</a>
-              <a class="dropdown-item" value="savings">Savings</a>
-              <a class="dropdown-item" value="expenses">Expenses</a>
+    {{!-- added button and div for stock api --}}
+    <button id="stockBtn">Check Stocks</button>
+    <div id="stockNum">Stocks</div>
+
+
+    <div class="container">
+      <div class="row form-row align-items-center">
+
+        <form id="form-input" class="form-1 ExpenseInfo">
+          <div>Add Expense</div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
             </div>
-          </div>
+            <input id="category-type" type="text" class="form-control" placeholder="Category Name" aria-label="Category"
+              aria-describedby="basic-addon1">
 
-          <div id="exp-input" class="input-group mb-3">
-            <input id="expense-name" type="text" class="form-control" placeholder="Expense Name"
-              aria-label="Recipient's username" aria-describedby="basic-addon2">
-          </div>
+            <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+              <option selected>Choose...</option>
+              <option value="1">Budget</option>
+              <option value="2">Cash</option>
+              <option value="3">Savings</option>
+              <option value="4">Expenses</option>
+            </select>
 
-          <div id="exp-input" class="input-group mb-3">
-            <input id="expense-amount" type="text" class="form-control" placeholder="0.00"
-              aria-label="Recipient's username" aria-describedby="basic-addon2">
-          </div>
+            <div id="exp-input" class="input-group mb-3">
+              <input id="expense-name" type="text" class="form-control" placeholder="Expense Name"
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+            </div>
 
-          <div id="exp-input" class="input-group mb-3">
-            <input id="bill-date" type="text" class="form-control" placeholder="Due Date"
-              aria-label="Recipient's username" aria-describedby="basic-addon2">
-          </div>
+            <div id="exp-input" class="input-group mb-3">
+              <input id="expense-amount" type="text" class="form-control" placeholder="0.00"
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+            </div>
 
-          <button id="btn-add-expense" class="btn">Add</button>
-        </div>
+            <div id="exp-input" class="input-group mb-3">
+              <input id="bill-date" type="text" class="form-control" placeholder="Due Date"
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+            </div>
 
-      </form>
+            <button id="btn-add-expense" class="btn">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
 
 
-      
+
+    <div class="container">
+      <div class="row form-row align-items-center">
+
+        <form id="form-input" class="form-2 CategoryInfo">
+          <div>Add Category</div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            </div>
+            <input id="category-type" type="text" class="form-control" placeholder="Category Name" aria-label="Category"
+              aria-describedby="basic-addon1">
+
+            <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+              <option selected>Choose...</option>
+              <option value="1">Budget</option>
+              <option value="2">Cash</option>
+              <option value="3">Savings</option>
+              <option value="4">Expenses</option>
+            </select>
+
+            <div id="category-input" class="input-group mb-3">
+              <input id="category-type" type="text" class="form-control" placeholder="Category Type"
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+            </div>
+
+            <button id="btn-add-expense" class="btn">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
 
 
 
-    </div> jumbotron
-  
-</div> container
+
+    <div class="container">
+      <div class="row form-row align-items-center">
+        <form id="form-input" class="form-3 billInfo">
+          <div>Add Bill</div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            </div>
+            <input id="category-type" type="text" class="form-control" placeholder="Bill / Company name"
+              aria-label="Category" aria-describedby="basic-addon1">
+
+            <div id="bill-input" class="input-group mb-3">
+              <input id="billWebsite" type="text" class="form-control" placeholder="Bill website link"
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+            </div>
+
+            <div id="bill-input" class="input-group mb-3">
+              <input id="expense-amount" type="text" class="form-control" placeholder="0.00"
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+            </div>
+
+            <div id="bill-input" class="input-group mb-3">
+              <input id="billDueDate" type="text" class="form-control" placeholder="Due Date"
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+            </div>
+
+            <button id="btn-add-expense" class="btn">Add</button>
+        </form>
+
+      </div>
+
+
+
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
 
 
 
