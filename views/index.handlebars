@@ -115,30 +115,30 @@
 
     <div class="container">
       <div class="row form-row align-items-center">
-        <form id="form-input" class="form-3 billInfo">
+        <form id="addBill" class="form-3 billInfo">
           <div>Add Bill</div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
             </div>
-            <input id="category-type" type="text" class="form-control" placeholder="Bill / Company name"
+            <input id="billInputName" type="text" class="form-control" placeholder="Bill / Company name"
               aria-label="Category" aria-describedby="basic-addon1">
 
-            <div id="bill-input" class="input-group mb-3">
-              <input id="billWebsite" type="text" class="form-control" placeholder="Bill website link"
+            <div  class="input-group mb-3">
+              <input id="billInputWebsite" type="text" class="form-control" placeholder="Bill website link"
                 aria-label="Recipient's username" aria-describedby="basic-addon2">
             </div>
 
-            <div id="bill-input" class="input-group mb-3">
-              <input id="expense-amount" type="text" class="form-control" placeholder="0.00"
+            {{!-- <div  class="input-group mb-3">
+              <input id="billInputExpense" type="text" class="form-control" placeholder="0.00"
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+            </div> --}}
+
+            <div class="input-group mb-3">
+              <input id="billInputDate" type="text" class="form-control" placeholder="Due Date"
                 aria-label="Recipient's username" aria-describedby="basic-addon2">
             </div>
 
-            <div id="bill-input" class="input-group mb-3">
-              <input id="billDueDate" type="text" class="form-control" placeholder="Due Date"
-                aria-label="Recipient's username" aria-describedby="basic-addon2">
-            </div>
-
-            <button id="btn-add-bill" class="btn">Add</button>
+            <button id="btn-add-bill" class="btn" href="/index/postbill">Add</button>
         </form>
 
       </div>
@@ -172,4 +172,3 @@
 
 </container>
 
-<script src="script.js"></script>
