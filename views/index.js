@@ -7,6 +7,16 @@
   var expenseAmount = $("expense-amount");
   var dropDownBtn = $("drop-down-tog");
   var addExpBtn = $("btn-add-expense");
+  var addExpBtn = $("btn-add-category");
+  var addExpBtn = $("btn-add-bill");
+  var formInput = $("start");
+  var formOne = $("form-1");
+  var formTwo = $("form-2");
+  var formThree = $("form-3");
+  var categories = $("form-input")
+
+
+
 
   $(addExpBtn).on("click", handleFormInput);
 
@@ -96,14 +106,17 @@
       }
     });
   }
-
-
-
-
-
- 
-
-
-
-
 });
+
+
+
+formInput.addEventListener("click", )
+function startGame(){
+    console.log("Start");
+    formInput.classList.add("hide");
+    formOne.classList.remove("hide");
+    formTwo.classList.add("hide");
+    answerEl.classList.remove("hide");
+    setNextQuestion(); 
+    quizInProgress = true;
+    }
