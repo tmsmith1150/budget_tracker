@@ -11,10 +11,13 @@
 
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand">
+     
       <a class="nav-item nav-link" href="signup">Sign Up</a>
       <a class="nav-item nav-link" href="login">Login</a>
+       {{#if loggedIn}}
       <a class="nav-item nav-link" href="index">Manage/Add Expenses</a>
       <a class="nav-item nav-link" href="overview">Overview of Expenses</a>
+      {{/if}}
     </a>
     <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
