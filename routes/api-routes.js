@@ -117,8 +117,6 @@ app.delete("/api/overview/deletebill/:id", function(req, res) {
   app.post("/api/index/postCategory", function(req, res) {
     // create takes an argument of an object describing the category we want to
     // insert into our table. 
-    console.log(req.body)
-    console.log(req.user)
     console.log("Add Category 2") 
     db.Categorie.create({
       categoryName: req.body.categoryName,
@@ -136,18 +134,21 @@ app.delete("/api/overview/deletebill/:id", function(req, res) {
   // Expense Functionality
 
   // POST route for saving a new expense
-  app.post("/api/submit/postexpense", function(req, res) {
+  app.post("/api/index/postexpense", function(req, res) {
     // create takes an argument of an object describing the category we want to
     // insert into our table. 
+    console.log(req.body)
+    console.log(req.user)
+    console.log("Add Expense 2") 
     db.Expense.create({
-      expenseName: req.body.name,
-      amount: req.body.amount,
-      // categoryId: req.body.amount,
-      date: req.body.date,
-      userId: req.params.id
+      expenseName: req.body.expenseName,
+      amount: req.body.expenseAmount,
+      CategorieId: req.body.expenseType,
+      date: req.body.expenseDate,
+      userId: req.user.id
     })
     .then(() => {
-      res.redirect(307, "/api/submit");
+      res.redirect("/api/index");
     })
     .catch(err => {
       res.status(401).json(err);
