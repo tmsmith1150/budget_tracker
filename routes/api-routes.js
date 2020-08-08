@@ -87,8 +87,6 @@ app.delete("/api/overview/deletebill/:id", function(req, res) {
   app.post("/api/index/postbill", function(req, res) {
     // create takes an argument of an object describing the Bill we want to
     // insert into our table. 
-    console.log(req.body)
-    console.log(req.user)
     console.log("Add Bill 2")
     db.Bill.create({
       billName: req.body.billName,
@@ -107,25 +105,28 @@ app.delete("/api/overview/deletebill/:id", function(req, res) {
   // Category Functionality
 
 // Route for getting data for Category for the Expense submit function
-app.get("/api/submit", function(req, res) {
-  // findAll returns all entries for a table when used with no options
-  db.Categorie.findAll({where: {userID: req.user.id},}).then(function(dbCategory) {
-    // We have access to the Category as an argument inside of the callback function
-    res.render(dbCategory);
-  });
-});
+// app.get("/api/submit", function(req, res) {
+//   // findAll returns all entries for a table when used with no options
+//   db.Categorie.findAll({where: {userID: req.user.id},}).then(function(dbCategory) {
+//     // We have access to the Category as an argument inside of the callback function
+//     res.render(dbCategory);
+//   });
+// });
 
   // POST route for saving a new category
-  app.post("/api/submit/postcategory", function(req, res) {
+  app.post("/api/index/postCategory", function(req, res) {
     // create takes an argument of an object describing the category we want to
     // insert into our table. 
+    console.log(req.body)
+    console.log(req.user)
+    console.log("Add Category 2") 
     db.Categorie.create({
-      categoryName: req.body.name,
-      categoryType: req.body.type,
-      userId: req.params.id
+      categoryName: req.body.categoryName,
+      categoryType: req.body.categoryType,
+      userId: req.user.id
     })
     .then(() => {
-      res.redirect(307, "/api/submit");
+      res.redirect("/api/index");
     })
     .catch(err => {
       res.status(401).json(err);
