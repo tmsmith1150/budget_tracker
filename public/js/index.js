@@ -14,25 +14,23 @@
   var formTwo = $(".form-2");
   var formThree = $(".form-3");
   var categories = $("#form-input")
-  const addBillForm = $("form#addBill");
-  const billInputName = $("#billInputName");
-  const billInputWebsite = $("#billInputWebsite");
-  const billInputDate = $("#billInputDate");
+  const addBillForm = $("form.billInfo");
+  const billInputName = $("input#billInputName");
+  const billInputWebsite = $("input#billInputWebsite");
+  const billInputDate = $("input#billInputDate");
 
-  console.log("test2")
 
 
  // When the signup button is clicked, we validate the email and password are not blank
-  addBillForm.on("#addBillBtn", event => {
+  addBillForm.on("submit", event => {
     event.preventDefault();
     const billData = {
       billName: billInputName.val().trim(),
       website: billInputWebsite.val().trim(),
       dueDate: billInputDate.val().trim(),
     };
-    console.log("test1")
     // If we have an email and password, run the signUpUser function
-    addBill(userData.billInputName, userData.billInputWebsite,userData.billInputDate);
+    addBill(billData.billName, billData.website,billData.dueDate);
     billInputName.val("");
     billInputWebsite.val("");
     billInputDate.val("");
@@ -40,7 +38,7 @@
 
   // Does a post to the signup route. If successful, we are redirected to the overview page
   // Otherwise we log any errors
-  function addBill(billName, website,dueDate) {
+  function addBill(billName, website, dueDate) {
     console.log("Add Bill")
     $.post("/api/index/postbill", {
       billName: billName,
@@ -54,7 +52,10 @@
       .catch(handleLoginErr);
   }
 
-
+  function handleLoginErr(err) {
+    $("#alert .msg").text(err.responseJSON);
+    $("#alert").fadeIn(500);
+  }
 
 
 
