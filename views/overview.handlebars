@@ -60,8 +60,17 @@
 
 
 
-  <br>
-  <br>
+  <div id="bills-output">
+    <ul>
+  {{#each bills}}
+    <li>
+      <p>Type: {{billName}}</p>
+      <p>Pet: {{website}}</p>
+      <p>Fierceness: {{dueDate}}</p>
+    </li>
+  {{/each}}
+</ul>
+  </div>
 
 
   <!-- <div id="pie-chart" class="pie">Pie Chart</div> -->

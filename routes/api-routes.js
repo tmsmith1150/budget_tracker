@@ -53,12 +53,16 @@ module.exports = function(app) {
   });
 
 // BILL Functionality
-// Route for getting data for bills
+// // Route for getting data for bills
 // app.get("/api/overview", function(req, res) {
 //   // findAll returns all entries for a table when used with no options
+//   console.log(req.user)
 //   db.Bill.findAll({where: {userID: req.user.id},}).then(function(dbBill) {
+//     console.log(dbBill)
 //     // We have access to the Bills as an argument inside of the callback function
-//     res.render(dbBill);
+//     let hbsOb = {bills: dbBill.map(bill => {return {id: bill.id, billName: bill.billName, website: bill.website, dueDate: bill.dueDate}})}
+//     console.log(hbsOb)
+//     res.render("overview", hbsOb);
 //   });
 // });
 
