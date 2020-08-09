@@ -5,6 +5,7 @@ form.login {
 
 * {
   font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-color: turquoise;
+  min-height: 100vh;
 }
 
 .col-md {
@@ -28,11 +30,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0 40px;
   text-align: center;
-  top: 0;
-  height: 100%;
-  width: 50%;
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
 }
@@ -42,18 +40,33 @@ body {
 
 
 
-.jumbotronIndex {
-  height: 1000px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.col-lg-12 {
+  height: 500px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
 }
 
-.jumbotronLogin {
-  height: 1000px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.boxLogin {
+  background-color: lightgray;
+}
+
+.boxSignup {
+  background-color: lightgray;
+}
+
+.jumbotron-fluid {
+  padding: 30px;
+  height: 95%;
 }
 
 .jumbotronSignup {
-  height: 1000px;
+  height: 95%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -63,17 +76,65 @@ body {
   background-color: white;
 }
 
+.jumbotronIndex {
+  height: 95%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.jumbotronLogin {
+  height: 95%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
 .navbar-brand {
   color: blue;
   font-size: 20px;
 }
+
 
 .logo {
   margin-bottom: 110px;
   text-align: center;
 }
 
-.together {
+td {
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+
+}
+
+th {
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+}
+
+tr {
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  margin-bottom: 40px;
+}
+
+table.center {
+  margin-left:auto; 
+  margin-right:auto;
+  padding-top: 30px;
+
+}
+
+.btn-primary {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 20px;
+}
+
+.togetherOverview {
   text-align: center;
   margin-top: -80px;
 }
@@ -133,9 +194,14 @@ body {
 
 .form-control {
   font-size: 20px;
-  width: 400px;
+  width: 300px;
   text-align: center;
   justify-content: center;
+}
+
+#addCategory, #addExpense, #addBill {
+  width: 500px;
+  
 }
 
 .btn {
@@ -143,12 +209,19 @@ body {
   height: 45px;
   background-color: rgb(40, 161, 201);
   font-size: 20px;
+  color: white;
 }
 
+
+.btn-default {
+  color: white;
+}
 #btn-add-expense {
   background-color: aqua;
   color: black;
   height: 35px;
+  align-self: center;
+  justify-content: center;
 }
 
 #drop-down-tog {
@@ -168,13 +241,13 @@ body {
   margin-top: 10px;
 }
 
-#dsply-all-ctgy {
+/* #dsply-all-ctgy {
   width: 600px;
   height: 600px;
   background-color: grey;
   margin-top: 10%;
   margin-left: 30%;
-}
+} */
 
 #expenses-chart {
   width: 450px;
@@ -206,7 +279,7 @@ body {
 
 .alt-link {
   font-size: 20px;
-  color: rgb(40, 161, 201);
+  color:black;
 }
 
 .alt-link-text {
@@ -225,6 +298,8 @@ body {
 .form-h2 {
   color: black;
   font-size: 35px;
+  margin-bottom: -30px;
+  /* margin: 10px; */
 }
 
 .loginButton {
@@ -249,15 +324,14 @@ body {
   display: none;
 }
 
-
-
 .hide {
   display: none;
 }
 
-#btn-bill{
+#btn-bill {
   background-color: rgb(0, 255, 255);
   padding: 10px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   border: black;
 }
+

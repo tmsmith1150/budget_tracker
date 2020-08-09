@@ -15,7 +15,7 @@
       <a class="nav-item nav-link" href="overview">Overview of Expenses</a>
     </a>
     <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><svg width="1em" height="1em"
           viewBox="0 0 16 16" class="bi bi-search btn-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
@@ -27,62 +27,62 @@
   </nav>
 
 
-  <div class="jumbotron jumbotron-fluid jumbotronIndex">
+  <div class="jumbotron-fluid jumbotronIndex">
 
+    <table class="center" style="width:45%">
+      <tr>
+        <th>
+         Let's get started! <br>
+          *placeholder*
+        </th>
+        <td>
+          <form id="addExpense" class="expenseInfo">
+            <div>Add Expense</div>
+            {{!-- <div class="input-group mb-3">
+              <div class="input-group-prepend">
+              </div> --}}
 
-    <div class="container">
-      <div class="row form-row align-items-center">
-
-        <form id="addExpense" class="expenseInfo">
-          <div>Add Expense</div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-            </div>
-
-            <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-              <select class="custom-select mr-sm-2" id="expenseInputCategory">
-                {{#each category}}
-                <option value= {{id}}>{{categoryName}}</option>
-                {{/each}}
-              </select>
-
-
+            <label class="sr-only" for="inlineFormCustomSelect">Preference</label>
+            <select class="custom-select" id="expenseInputCategory">
+              {{#each category}}
+              <option value={{id}}>{{categoryName}}</option>
+              {{/each}}
+            </select>
 
             <div id="exp-input" class="input-group mb-3">
               <input id="expenseInputName" type="text" class="form-control" placeholder="Expense Name"
                 aria-label="Recipient's username" aria-describedby="basic-addon2">
             </div>
 
-            <div id="exp-input" class="input-group mb-3">
+            <div id="exp-input">
+              {{!-- class="input-group mb-3"> --}}
               <input id="expenseInputAmount" type="text" class="form-control" placeholder="0.00"
                 aria-label="Recipient's username" aria-describedby="basic-addon2">
             </div>
 
-            <div id="exp-input" class="input-group mb-3">
+            <div id="exp-input">
+              {{!-- class="input-group mb-3"> --}}
               <input id="expenseInputDate" type="text" class="form-control" placeholder="Due Date"
                 aria-label="Recipient's username" aria-describedby="basic-addon2">
             </div>
 
-            <button class="btn" type="submit">Add</button>
-        </form>
-      </div>
-    </div>
-  </div>
+            <button class="btn btn-primary" type="submit">Add</button>
+          </form>
+        </td>
+      </tr>
 
 
-
-{{!-- Inputs for Adding a bill notification --}}
-    <div class="container">
-      <div class="row form-row align-items-center">
-        <form id="addBill" class= "billInfo">
-          <div>Add Bill</div>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-            </div>
+      <tr>
+        <td>
+          <form id="addBill" class="billInfo">
+            <div>Add Bill</div>
+            {{!-- <div class="input-group mb-3">
+              <div class="input-group-prepend">
+              </div> --}}
             <input id="billInputName" type="text" class="form-control" placeholder="Bill / Company name"
               aria-label="Category" aria-describedby="basic-addon1">
 
-            <div  class="input-group mb-3">
+            <div class="input-group mb-3">
               <input id="billInputWebsite" type="text" class="form-control" placeholder="Bill website link"
                 aria-label="Recipient's username" aria-describedby="basic-addon2">
             </div>
@@ -97,18 +97,25 @@
                 aria-label="Recipient's username" aria-describedby="basic-addon2">
             </div>
 
-            <button id="btn-add-bill" class="btn" type="submit">Add</button>
-        </form>
+            <button id="btn-add-bill" class="btn btn-primary" type="submit">Add</button>
+          </form>
+        </td>
+        <th>
+          Let's get started! <br>
+          *placeholder*
+          
+        </th>
+      </tr>
 
-      </div>
 
-    </div>
-
-{{!-- Inputs for adding a category --}}
-     <div class="container">
-      <div class="row form-row align-items-center">
-        <form id="addCategory" class="categoryInfo">
-          <div>Add Category</div>
+      <tr>
+        <th>
+         Let's get started! <br>
+          *placeholder*
+        </th>
+        <td>
+          <form id="addCategory" class="categoryInfo">
+            <div>Add Category</div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
               </div>
@@ -117,48 +124,26 @@
 
               {{!-- <div  class="input-group mb-3"> --}}
 
-              <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-              <select class="custom-select mr-sm-2" id="categoryInputType">
+              <label class="sr-only" for="inlineFormCustomSelect">Preference</label>
+              <select class="custom-select" id="categoryInputType">
                 <option value="Budget">Budget</option>
                 <option value="Cash">Cash</option>
                 <option value="Savings">Savings</option>
                 <option value="Expenses">Expenses</option>
               </select>
-          </div>
-
-         
-
-            <button id="btn-add-bill" class="btn" type="submit">Add</button>
-        </form>
-
-      </div>
+            </div>
 
 
 
+            <button id="btn-add-bill" class="btn btn-primary" type="submit">Add</button>
+          </form>
+        </td>
+      </tr>
 
+    </table>
 
-    </div>
-
+</div>
   </div>
-
-
-
-
-
-
-
-
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-</container>
-
+    </div>  </div>
+      </div>
+        </div>
