@@ -18,6 +18,11 @@
   const addCategoryForm = $("form.categoryInfo");
   const categoryInputName = $("input#categoryInputName");
   const categoryInputType = $("select#categoryInputType");
+  const addExpenseForm = $("form.expenseInfo");
+  const expenseInputName = $("input#expenseInputName");
+  const expenseInputAmount = $("input#expenseInputAmount");
+  const expenseInputDate = $("input#expenseInputDate");
+  const expenseInputType = $("select#expenseInputCategory");
 
 
  // When the signup button is clicked, we validate the email and password are not blank
@@ -88,11 +93,7 @@
       .catch(handleLoginErr);
   }
 
-  const addExpenseForm = $("form.expenseInfo");
-  const expenseInputName = $("input#expenseInputName");
-  const expenseInputAmount = $("input#expenseInputAmount");
-  const expenseInputDate = $("input#expenseInputDate");
-  const expenseInputType = $("select#expenseInputCategory");
+
 
    // When the signup button is clicked, we validate the email and password are not blank
    addExpenseForm.on("submit", event => {
@@ -130,6 +131,42 @@
   }
 
 
+  // const billsInfo = $(".delete-bill");
+  // billsInfo.on("click", event => {
+  //   console.log("Check")
+  //   event.preventDefault();
+  //  var currentBill = $(this).data("id")
+  //  console.log($(this).data("id"))
+  //  console.log($(this).val)
+  //   // const billId = {
+  //   //   id: currentBill
+  //   // };
+  // console.log(currentBill)
+  // });
+
+
+  $(".delete-bill").on("click", function(event) {
+    var id = $(this).data("id");
+    console.log(id)
+    // Send the DELETE request.
+    $.ajax("/overview/deletebill/" + id, {
+      type: "DELETE"
+    }).then(
+      function() {
+        console.log("deleted bill", id);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+
+  // deleteBill(billId.id)
+
+  // function deleteBill(id){
+  // $.delete("/api/overview/deleteexpense/:id")
+
+  // }
 
 //   $(addExpBtn).on("click", handleFormInput);
 
