@@ -1,4 +1,4 @@
-<div class="container containerPage">
+<div class="container">
 
   <header id="header" class="header-1">
     <img src="../assets/css/images/budget_tracker_wordmark.svg" width="700" alt="budgetTrackerLogo"
@@ -11,16 +11,16 @@
 
   <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand">
-     
+
       <a class="nav-item nav-link" href="signup">Sign Up</a>
       <a class="nav-item nav-link" href="login">Login</a>
-       {{#if loggedIn}}
+      {{#if loggedIn}}
       <a class="nav-item nav-link" href="index">Manage/Add Expenses</a>
       <a class="nav-item nav-link" href="overview">Overview of Expenses</a>
       {{/if}}
     </a>
     <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><svg width="1em" height="1em"
           viewBox="0 0 16 16" class="bi bi-search btn-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd"
@@ -30,14 +30,14 @@
         </svg></button>
     </form>
   </nav>
+</div>
 
-
-
-  <div class="jumbotron jumbotron-fluid jumbotronLogin">
+<div class="container">
+  <div class="jumbotron-fluid jumbotronLogin boxLogin">
 
     <div class="row">
 
-      <div class="col-md-6 col-md-offset-3 col-md">
+      <div class="col-lg-12">
         <h2 class="form-h2">Login Form</h2>
         <form class="login">
 
@@ -57,18 +57,14 @@
           </div>
 
 
-          <button type="submit" class="btn btn-default">Login</button>
+          <button type="submit" class="btn btn-default btn-primary">Login</button>
         </form>
-        <br />
-        <p class="alt-link-text">Or sign up <a href="/" class="alt-link">here</a></p>
+        <br/>
+
+        <p class="alt-link-text"> <a href="/" class="alt-link">Or click here to sign up</a></p>
       </div>
 
-      <div class="col-md-6 col-md-offset-3">
-        <div class="box">
-
-        </div>
-
-      </div>
+      
     </div>
-    </div>
-     </div>
+  </div>
+</div>
