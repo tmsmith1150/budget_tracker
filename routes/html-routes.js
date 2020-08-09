@@ -47,18 +47,20 @@ module.exports = function(app) {
     db.Expense.findAll({where: {userID: req.user.id},}).then(function(dbExpense) {
       // We have access to the Bills as an argument inside of the callback function
       let hbsExp = {expenses: dbExpense.map(expense => {return {id: expense.id, expenseName: expense.expenseName, amount: expense.amount, date: expense.date, category: expense.CategorieId}})}
-      res.render("overview", hbsExp);
+      // res.render("overview", hbsExp);
       // console.log(hbsExpense)
     });
 
     db.Categorie.findAll({where: {userID: req.user.id},}).then(function(dbCategory) {
       // We have access to the Bills as an argument inside of the callback function
       let hbsCat = {category: dbCategory.map(categorie => {return {id: categorie.id, categoryName: categorie.categoryName}})}
-      res.render("overview", hbsCat );
-     
+      // res.render("overview",hbsCat);  
       console.log(hbsCat)
     });
- 
+    
+
+
+    
   });
 
   // app.get("/overview", (req, res) => {
