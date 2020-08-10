@@ -57,22 +57,6 @@ module.exports = function(app) {
     }
     
     
-    db.Expense.findAll({where: {userID: req.user.id},}).then(function(dbExpense) {
-      // We have access to the Bills as an argument inside of the callback function
-      let hbsExp = {expenses: dbExpense.map(expense => {return {id: expense.id, expenseName: expense.expenseName, amount: expense.amount, date: expense.date, category: expense.CategorieId}})}
-      res.render("overview", hbsExp);
-      // console.log(hbsExpense)
-      console.log("ALERT: " + db.Expense);
-    });
-
-    db.Categorie.findAll({where: {userID: req.user.id},}).then(function(dbCategory) {
-      // We have access to the Bills as an argument inside of the callback function
-      let hbsCat = {category: dbCategory.map(categorie => {return {id: categorie.id, categoryName: categorie.categoryName}})}
-      res.render("overview", hbsCat);  
-      console.log(hbsCat)
-
-
-    // move to overview page
     db.Expense.findAll({
       include: [{
         model: db.Categorie
@@ -82,19 +66,37 @@ module.exports = function(app) {
       let hbsTest = {expenses: dbExpense.map(expense => {
         // console.log(expense)
         // console.log(expense.categoryName)
-        return {id: expense.id, expenseName: expense.expenseName, amount: expense.amount, date: expense.date, category: expense.CategorieId, categoryName: expense.Categorie.categoryName, categoryType: expense.categorie.categoryType}}
+        return {id: expense.id, expenseName: expense.expenseName, amount: expense.amount, date: expense.date, category: expense.CategorieId, categoryName: expense.Categorie.categoryName}}
         )}
-      res.render("overview", hbsTest);
-      console.log(hbsTest);
+        console.log(hbsTest)
+      });
+
+  });
+
+
+    // move to overview page
+  //   db.Expense.findAll({
+  //     include: [{
+  //       model: db.Categorie
+  //     }], 
+  //     where: {userID: req.user.id}}).then(function(dbExpense) {
+  //     // We have access to the Bills as an argument inside of the callback function
+  //     let hbsTest = {expenses: dbExpense.map(expense => {
+  //       // console.log(expense)
+  //       // console.log(expense.categoryName)
+  //       return {id: expense.id, expenseName: expense.expenseName, amount: expense.amount, date: expense.date, category: expense.CategorieId, categoryName: expense.Categorie.categoryName, categoryType: expense.categorie.categoryType}}
+  //       )}
+  //     res.render("overview", hbsTest);
+  //     console.log(hbsTest);
       
 
-    });
+  //   });
     
-  });
+  // });
 
 
     
-  });
+  // });
 
   // create new HTML handle bars for 1)Bills 2)pie chart
   //  In html-routes add line for /billpay and /piechart
@@ -182,7 +184,7 @@ module.exports = function(app) {
   });
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/overview", isAuthenticated, (req, res) => {
-    res.render("overview");
-  });
+  // app.get("/overview", isAuthenticated, (req, res) => {
+  //   res.render("overview");
+  // });
 };
