@@ -31,37 +31,52 @@ module.exports = function(app) {
   });
 
  
-
+ app.get("/billpay")
   app.get("/overview", (req, res) => {
     // If the user already has an account send them to the overview page
     if (!req.user) {
       res.redirect(307, "/login");
     }
+
     db.Bill.findAll({where: {userID: req.user.id},}).then(function(dbBill) {
       // We have access to the Bills as an argument inside of the callback function
       let hbsOb = {bills: dbBill.map(bill => {return {id: bill.id, billName: bill.billName, website: bill.website, dueDate: bill.dueDate}})}
-      res.render("overview", hbsOb);
+      // res.render("overview", hbsOb);
      
     });
-    
-    db.Expense.findAll({where: {userID: req.user.id},}).then(function(dbExpense) {
+    // move to overview page
+    db.Expense.findAll({
+      include: [{
+        model: db.Categorie
+      }], 
+      where: {userID: req.user.id}}).then(function(dbExpense) {
       // We have access to the Bills as an argument inside of the callback function
-      let hbsExp = {expenses: dbExpense.map(expense => {return {id: expense.id, expenseName: expense.expenseName, amount: expense.amount, date: expense.date, category: expense.CategorieId}})}
-      // res.render("overview", hbsExp);
-      // console.log(hbsExpense)
+      let hbsTest = {expenses: dbExpense.map(expense => {
+        // console.log(expense)
+        // console.log(expense.categoryName)
+        return {id: expense.id, expenseName: expense.expenseName, amount: expense.amount, date: expense.date, category: expense.CategorieId, categoryName: expense.Categorie.categoryName, categoryType: expense.categorie.categoryType}}
+        )}
+      res.render("overview", hbsTest);
+      console.log(hbsTest);
+      
     });
-
-    db.Categorie.findAll({where: {userID: req.user.id},}).then(function(dbCategory) {
-      // We have access to the Bills as an argument inside of the callback function
-      let hbsCat = {category: dbCategory.map(categorie => {return {id: categorie.id, categoryName: categorie.categoryName}})}
-      // res.render("overview",hbsCat);  
-      console.log(hbsCat)
-    });
-    
-
-
     
   });
+
+  // create new HTML handle bars for 1)Bills 2)pie chart
+  //  In html-routes add line for /billpay and /piechart
+//   category
+//   for each catergory type
+//   foreach catergoryname
+//   foreach expense.name -- date amount
+
+// example a bunch of lists 
+// Title of card: budget
+// Example expense: carfund
+// example line item: carfund payment august date 8/10/2020 amount 1,000 
+// delete button
+
+  
 
   // app.get("/overview", (req, res) => {
   //   // If the user already has an account send them to the overview page
