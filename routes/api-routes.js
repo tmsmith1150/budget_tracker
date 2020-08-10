@@ -67,7 +67,7 @@ module.exports = function(app) {
 // });
 
 // Route for deleting Bill pnce paid
-app.delete("/overview/deletebill/:id", function(req, res) {
+app.delete("/bills/deletebill/:id", function(req, res) {
   // We just have to specify which todo we want to destroy with "where"
   console.log("delete bill")
   console.log(req.params)
@@ -78,7 +78,7 @@ app.delete("/overview/deletebill/:id", function(req, res) {
     }
   })
   .then(() => {
-    res.redirect("/api/overview");
+    res.redirect("/api/bills");
   })
   .catch(err => {
     res.status(401).json(err);

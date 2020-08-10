@@ -30,36 +30,54 @@ module.exports = function(app) {
     res.render("signup");
   });
 
- 
+  app.get("/bills", (req, res) => {
+    // If the user already has an account send them to the overview page
+    if (req.user) {
+      // res.redirect("/overview");
+    }
+    res.render("bills");
+  });
 
+ 
+  app.get("/bills", (req, res) => {
+    // If the user already has an account send them to the overview page
+   
+    if (!req.user) {
+      res.redirect(307, "/login");
+    }
+    
+    db.Bill.findAll({where: {userID: req.user.id},}).then(function(dbBill) {
+      // We have access to the Bills as an argument inside of the callback function
+      let hbsOb = {bills: dbBill.map(bill => {return {id: bill.id, billName: bill.billName, website: bill.website, dueDate: bill.dueDate}})}
+      res.render("bills", hbsOb);
+     
+     
+    });
+  });
   app.get("/overview", (req, res) => {
     // If the user already has an account send them to the overview page
     if (!req.user) {
       res.redirect(307, "/login");
     }
-    db.Bill.findAll({where: {userID: req.user.id},}).then(function(dbBill) {
-      // We have access to the Bills as an argument inside of the callback function
-      let hbsOb = {bills: dbBill.map(bill => {return {id: bill.id, billName: bill.billName, website: bill.website, dueDate: bill.dueDate}})}
-      res.render("overview", hbsOb);
-     
-    });
+    
     
     db.Expense.findAll({where: {userID: req.user.id},}).then(function(dbExpense) {
       // We have access to the Bills as an argument inside of the callback function
       let hbsExp = {expenses: dbExpense.map(expense => {return {id: expense.id, expenseName: expense.expenseName, amount: expense.amount, date: expense.date, category: expense.CategorieId}})}
-      // res.render("overview", hbsExp);
+      res.render("overview", hbsExp);
       // console.log(hbsExpense)
+      console.log("ALERT: " + db.Expense);
     });
 
     db.Categorie.findAll({where: {userID: req.user.id},}).then(function(dbCategory) {
       // We have access to the Bills as an argument inside of the callback function
       let hbsCat = {category: dbCategory.map(categorie => {return {id: categorie.id, categoryName: categorie.categoryName}})}
-      // res.render("overview",hbsCat);  
+      res.render("overview", hbsCat);  
       console.log(hbsCat)
     });
     
 
-
+  
     
   });
 
@@ -124,6 +142,13 @@ module.exports = function(app) {
     res.render("index");
   });
 
+  app.get("/bills", (req, res) => {
+    // If the user already has an account send them to the overview page
+    if (req.user) {
+      // res.redirect("/overview");
+    }
+    res.render("bills");
+  });
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/overview", isAuthenticated, (req, res) => {

@@ -149,7 +149,7 @@
     var id = $(this).data("id");
     console.log(id)
     // Send the DELETE request.
-    $.ajax("/overview/deletebill/" + id, {
+    $.ajax("/bills/deletebill/" + id, {
       type: "DELETE"
     }).then(
       function() {

@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
       id: {type:DataTypes.INTEGER,primaryKey: true, autoIncrement: true},
       expenseName: DataTypes.STRING,
       amount: DataTypes.INTEGER,
-    //   categoryId: DataTypes.INTEGER,
+      // categoryId: DataTypes.INTEGER,
       date: DataTypes.DATE,
       userId: DataTypes.INTEGER
     });
@@ -18,6 +18,7 @@ module.exports = function(sequelize, DataTypes) {
         });
       };
 
-
+      
     return Expenses;
+    
   };

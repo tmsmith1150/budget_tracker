@@ -14,7 +14,7 @@
       <a class="nav-item nav-link" href="login">Login</a>
       <a class="nav-item nav-link" href="index">Manage/Add Expenses</a>
       <a class="nav-item nav-link" href="overview">Overview of Expenses</a>
-      <a class="nav-item nav-link" href="bills">Bill Pay</a>
+      <a class="nav-item nav-link" href="bills">Bills</a>
     </a>
     <form class="form-inline">
       <input class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -52,25 +52,23 @@
 
     </div>
 
-
-
-
-
   </div>
 
-<div id"container">
+<h2>HELLO</h2>
 
-  <div id="expense-output">
-    <h3>Expenses</h3>
-    <ul class="ul-item">
-      {{#each expenses}}
-   
-        <li>category: {{categorieId}}</li>
-          <li>expenseName: {{expenseName}}</li>
-          <li>amount: {{amount}}</li>
-          <li>Date: {{date}}</li>
-          
-       {{/each}}
+  <div id="bills-output">
+    <h3>Bills</h3>
+    <ul>
+      {{#each bills}}
+        
+          <li>Bill Name: {{billName}}</li>
+          <li>Website: {{website}}</li>
+          <li>Date: {{dueDate}}</li>
+          <button class="delete-bill" data-id= "{{id}}">Delete</button>
+        
+      {{/each}}
     </ul>
+    
+    
   </div>
   </div>
