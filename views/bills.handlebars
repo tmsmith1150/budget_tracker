@@ -14,7 +14,7 @@
       <a class="nav-item nav-link" href="login">Login</a>
       <a class="nav-item nav-link" href="index">Manage/Add Expenses</a>
       <a class="nav-item nav-link" href="overview">Overview of Expenses</a>
-      <a class="nav-item nav-link" href="bills">Bill Pay</a>
+      <a class="nav-item nav-link" href="bills">Bills</a>
     </a>
     <form class="form-inline">
       <input class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -52,77 +52,23 @@
 
     </div>
 
-
-
-
-
   </div>
-
-<div id"container">
 
 <h2>HELLO</h2>
 
   <div id="bills-output">
+    <h3>Bills</h3>
     <ul>
       {{#each bills}}
-        <li>
-          <p>Bill Name: {{billName}}</p>
-          <p>Website: {{website}}</p>
-          <p>Date: {{dueDate}}</p>
+        
+          <li>Bill Name: {{billName}}</li>
+          <li>Website: {{website}}</li>
+          <li>Date: {{dueDate}}</li>
           <button class="delete-bill" data-id= "{{id}}">Delete</button>
-        </li>
+        
       {{/each}}
     </ul>
     
     
-  </div>
-
-{{!-- michelle look at this  --}}
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          {{#each cat}}
-          [{{categoryName}},{{catAmount}}],
-          {{/each}}
-
-
-          
-        ]);
-
-        var options = {
-          title: 'My Daily Activities',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
-      }
-    </script>
-  </head>
-  <body>
-    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
-  </body>
-
-  <!-- <div id="pie-chart" class="pie">Pie Chart</div> -->
-  {{!-- <div id="expenses-chart">Expenses Chart</div>
-  <div id="pie-chart" class="pie">Pie Chart</div> --}}
-
-
-  <div id="expense-output">
-    <h3>Expenses</h3>
-    <ul class="ul-item">
-      {{#each expenses}}
-   
-        <li>category: {{categorieId}}</li>
-          <li>expenseName: {{expenseName}}</li>
-          <li>amount: {{amount}}</li>
-          <li>Date: {{date}}</li>
-          
-       {{/each}}
-    </ul>
   </div>
   </div>
