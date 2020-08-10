@@ -31,17 +31,11 @@ module.exports = function(app) {
   });
 
 
-  app.get("/bills", (req, res) => {
-    // If the user already has an account send them to the overview page
-    if (req.user) {
-      // res.redirect("/overview");
-    }
-    res.render("bills");
-  });
+ 
 
  
   app.get("/bills", (req, res) => {
- master
+
     // If the user already has an account send them to the overview page
    
     if (!req.user) {
@@ -50,8 +44,8 @@ module.exports = function(app) {
     
     db.Bill.findAll({where: {userID: req.user.id},}).then(function(dbBill) {
       // We have access to the Bills as an argument inside of the callback function
-      let hbsOb = {bills: dbBill.map(bill => {return {id: bill.id, billName: bill.billName, website: bill.website, dueDate: bill.dueDate}})}
-      res.render("bills", hbsOb);
+      let hbsBill = {bills: dbBill.map(bill => {return {id: bill.id, billName: bill.billName, website: bill.website, dueDate: bill.dueDate}})}
+      res.render("bills", hbsBill);
      
      
     });
