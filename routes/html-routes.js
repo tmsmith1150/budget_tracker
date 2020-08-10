@@ -66,91 +66,13 @@ module.exports = function(app) {
       let hbsTest = {expenses: dbExpense.map(expense => {
         // console.log(expense)
         // console.log(expense.categoryName)
-        return {id: expense.id, expenseName: expense.expenseName, amount: expense.amount, date: expense.date, category: expense.CategorieId, categoryName: expense.Categorie.categoryName}}
+        return {id: expense.id, expenseName: expense.expenseName, amount: expense.amount, date: expense.date, category: expense.CategorieId, categoryName: expense.Categorie.categoryName, categoryType: expense.Categorie.categoryType, cash: (expense.Categorie.categoryType==="Cash"), exp: (expense.Categorie.categoryType==="Expenses"), budget: (expense.Categorie.categoryType==="Budget"), save: (expense.Categorie.categoryType==="Savings")}}
         )}
         console.log(hbsTest)
+        res.render("overview", hbsTest);
       });
 
   });
-
-
-    // move to overview page
-  //   db.Expense.findAll({
-  //     include: [{
-  //       model: db.Categorie
-  //     }], 
-  //     where: {userID: req.user.id}}).then(function(dbExpense) {
-  //     // We have access to the Bills as an argument inside of the callback function
-  //     let hbsTest = {expenses: dbExpense.map(expense => {
-  //       // console.log(expense)
-  //       // console.log(expense.categoryName)
-  //       return {id: expense.id, expenseName: expense.expenseName, amount: expense.amount, date: expense.date, category: expense.CategorieId, categoryName: expense.Categorie.categoryName, categoryType: expense.categorie.categoryType}}
-  //       )}
-  //     res.render("overview", hbsTest);
-  //     console.log(hbsTest);
-      
-
-  //   });
-    
-  // });
-
-
-    
-  // });
-
-  // create new HTML handle bars for 1)Bills 2)pie chart
-  //  In html-routes add line for /billpay and /piechart
-//   category
-//   for each catergory type
-//   foreach catergoryname
-//   foreach expense.name -- date amount
-
-// example a bunch of lists 
-// Title of card: budget
-// Example expense: carfund
-// example line item: carfund payment august date 8/10/2020 amount 1,000 
-// delete button
-
-  
-
-
-  // app.get("/overview", (req, res) => {
-  //   // If the user already has an account send them to the overview page
-  //   if (!req.user) {
-  //     res.redirect(307, "/login");
-  //   }
-  //   console.log(req.user)
-  //   db.Expense.findAll({where: {userID: req.user.id},}).then(function(dbExpense) {
-  //     console.log(dbBill)
-  //     // We have access to the Bills as an argument inside of the callback function
-  //     let hbsOb = {expenses: dbExpense.map(expense => {return {id: expense.id, expenseName: expense.expenseName, amount: expense.amount, date: expense.Date, category: expense.CategorieId}})}
-  //     console.log(hbsOb)
-  //     res.render("overview", hbsOb);
-  //   });
-  //   // res.render("overview", hbsOb);
-  // });
-
-  // app.get("/overview", (req, res) => {
-  //   // If the user already has an account send them to the overview page
-  //   if (!req.user) {
-  //     res.redirect(307, "/login");
-  //   }
-    
-  //   db.Categorie.findAll({where: {userID: req.user.id},}).then(function(dbCategory) {
-  //     // We have access to the Bills as an argument inside of the callback function
-  //     let hbsOb = {category: dbCategory.map(categorie => {return {id: categorie.id, categoryName: categorie.categoryName}})}
-  //     res.render("overview", hbsOb);
-  //   });
-  //   // res.render("overview", hbsOb);
-  // });
-
-  // app.get("/index", (req, res) => {
-  //   // If the user already has an account send them to the overview page
-  //   if (req.user) {
-  //     // res.redirect("/overview");
-  //   }
-  //   res.render("index");
-  // });
 
 
   app.get("/index", (req, res) => {
@@ -167,13 +89,6 @@ module.exports = function(app) {
     // res.render("overview", hbsOb);
   });
 
-  app.get("/index", (req, res) => {
-    // If the user already has an account send them to the overview page
-    if (req.user) {
-      // res.redirect("/overview");
-    }
-    res.render("index");
-  });
 
   app.get("/bills", (req, res) => {
     // If the user already has an account send them to the overview page
@@ -184,7 +99,7 @@ module.exports = function(app) {
   });
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  // app.get("/overview", isAuthenticated, (req, res) => {
-  //   res.render("overview");
-  // });
+  app.get("/overview", isAuthenticated, (req, res) => {
+    res.render("overview");
+  });
 };
