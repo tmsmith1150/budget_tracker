@@ -79,13 +79,59 @@
     <h3>Expenses</h3>
     <ul class="ul-item">
       {{#each expenses}}
-   
+        {{#if exp}}
         <li>category: {{categoryName}}</li>
           <li>expenseName: {{expenseName}}</li>
           <li>amount: {{amount}}</li>
           <li>Date: {{date}}</li>
-          
+          <button class="delete-expense" data-id= "{{id}}">Delete</button>
+        {{/if}}
        {{/each}}
     </ul>
   </div>
+
+  <div id="income-output">
+    <h3>Income</h3>
+    <ul class="ul-item">
+      {{#each expenses}}
+        {{#if cash}}
+        <li>category: {{categoryName}}</li>
+          <li>expenseName: {{expenseName}}</li>
+          <li>amount: {{amount}}</li>
+          <li>Date: {{date}}</li>
+          <button class="delete-expense" data-id= "{{id}}">Delete</button>
+        {{/if}}
+       {{/each}}
+    </ul>
   </div>
+
+  <div id="savings-output">
+    <h3>Savings</h3>
+    <ul class="ul-item">
+      {{#each expenses}}
+        {{#if save}}
+        <li>category: {{categoryName}}</li>
+          <li>expenseName: {{expenseName}}</li>
+          <li>amount: {{amount}}</li>
+          <li>Date: {{date}}</li>
+          <button class="delete-expense" data-id= "{{id}}">Delete</button>
+        {{/if}}
+       {{/each}}
+    </ul>
+  </div>
+
+  <div id="budget-output">
+    <h3>Budget</h3>
+    <ul class="ul-item">
+      {{#each expenses}}
+        {{#if budget}}
+        <li>category: {{categoryName}}</li>
+          <li>expenseName: {{expenseName}}</li>
+          <li>amount: {{amount}}</li>
+          <li>Date: {{date}}</li>
+          <button class="delete-expense" data-id= "{{id}}">Delete</button>
+        {{/if}}
+       {{/each}}
+    </ul>
+  </div>
+</div>

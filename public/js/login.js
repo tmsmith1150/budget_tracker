@@ -30,6 +30,7 @@ $(document).ready(() => {
     })
       .then(() => {
         window.location.replace("/overview");
+        
         // If there's an error, log the error
       })
       .catch(err => {

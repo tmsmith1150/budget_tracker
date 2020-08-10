@@ -141,9 +141,6 @@ app.delete("/bills/deletebill/:id", function(req, res) {
   app.post("/api/index/postexpense", function(req, res) {
     // create takes an argument of an object describing the category we want to
     // insert into our table. 
-    console.log(req.body)
-    console.log(req.user)
-    console.log("Add Expense 2") 
     db.Expense.create({
       expenseName: req.body.expenseName,
       amount: req.body.expenseAmount,
