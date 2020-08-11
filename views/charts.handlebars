@@ -1,8 +1,32 @@
+<script>
+  google.charts.load('current', { 'packages': ['corechart'] });
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    console.log("Check")
+    var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      {{#each expenses}}
+  {{#if exp}}
+  [`{{categoryName}}`, {{amount}}],
+
+    {{/if}}
+    {{/each}}
+  ]);
+        var options = {
+          title: 'My Daily Activities'
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+</script>
+
+
 <div class="container containerPage">
 
   <header id="header" class="header-1">
     <img src="../assets/css/images/budget_tracker_wordmark.svg" width="700" alt="budgetTrackerLogo"
-      style="display: block; margin-left: auto; margin-right: auto; padding-top: 8px;" onclick="window.location.href='/overview'" />
+      style="display: block; margin-left: auto; margin-right: auto; padding-top: 8px;"
+      onclick="window.location.href='/overview'" />
   </header>
 
 
@@ -17,7 +41,7 @@
       <a class="nav-item nav-link" href="bills">Bill Pay</a>
       <a class="nav-item nav-link" href="charts">Charts</a>
     </a>
-    
+
   </nav>
 
 
@@ -26,22 +50,23 @@
 
 
 
-      <div class="row">
-        <div class="col">
-          <p class="logo"> <img src="../assets/css/images/budget_tracker_logo.svg" width="300" alt="budget tracker logo"
-              </p>
-              <div class = "togetherOverview">
-                        <h4 style="font-size: 30px"> <strong> It’s all coming together </strong></h4>
-        When you’re on top of your money, life is good. <br>
-        We help you effortlessly manage your finances <br> in one place.
+    <div class="row">
+      <div class="col">
+        <p class="logo"> <img src="../assets/css/images/budget_tracker_logo.svg" width="300" alt="budget tracker logo"
+            </p>
+        <div class="togetherOverview">
+          <h4 style="font-size: 30px"> <strong> It’s all coming together </strong></h4>
+          When you’re on top of your money, life is good. <br>
+          We help you effortlessly manage your finances <br> in one place.
           </p>
-          </div>
         </div>
+      </div>
 
-        <div class="col">
-          <p class="lead"> <img src="../assets/css/images/Ipad Pro2_mockup.png" width="600" alt="budget tracker logo"> </p>
-        </div>
+      <div class="col">
+        <p class="lead"> <img src="../assets/css/images/Ipad Pro2_mockup.png" width="600" alt="budget tracker logo">
+        </p>
+      </div>
 
     </div>
-
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
   </div>

@@ -2,7 +2,8 @@
 
   <header id="header" class="header-1">
     <img src="../assets/css/images/budget_tracker_wordmark.svg" width="700" alt="budgetTrackerLogo"
-      style="display: block; margin-left: auto; margin-right: auto; padding-top: 8px;" onclick="window.location.href='/overview'" />
+      style="display: block; margin-left: auto; margin-right: auto; padding-top: 8px;"
+      onclick="window.location.href='/overview'" />
   </header>
 
 
@@ -17,7 +18,7 @@
       <a class="nav-item nav-link" href="bills">Bill Pay</a>
       <a class="nav-item nav-link" href="charts">Charts</a>
     </a>
-    
+
   </nav>
 
 
@@ -26,21 +27,22 @@
 
 
 
-      <div class="row">
-        <div class="col">
-          <p class="logo"> <img src="../assets/css/images/budget_tracker_logo.svg" width="300" alt="budget tracker logo"
-              </p>
-              <div class = "togetherOverview">
-                        <h4 style="font-size: 30px"> <strong> It’s all coming together </strong></h4>
-        When you’re on top of your money, life is good. <br>
-        We help you effortlessly manage your finances <br> in one place.
+    <div class="row">
+      <div class="col">
+        <p class="logo"> <img src="../assets/css/images/budget_tracker_logo.svg" width="300" alt="budget tracker logo"
+            </p>
+        <div class="togetherOverview">
+          <h4 style="font-size: 30px"> <strong> It’s all coming together </strong></h4>
+          When you’re on top of your money, life is good. <br>
+          We help you effortlessly manage your finances <br> in one place.
           </p>
-          </div>
         </div>
+      </div>
 
-        <div class="col">
-          <p class="lead"> <img src="../assets/css/images/Ipad Pro2_mockup.png" width="600" alt="budget tracker logo"> </p>
-        </div>
+      <div class="col">
+        <p class="lead"> <img src="../assets/css/images/Ipad Pro2_mockup.png" width="600" alt="budget tracker logo">
+        </p>
+      </div>
 
     </div>
 
@@ -50,76 +52,76 @@
 
   </div>
 
-<div id"container">
+  <div id"container">
 
 
-  <div id="expense-output">
-    <hr class="hr-line-grp">
-    <h3 class="h3-heading">Expenses</h3>
-    <ul class="ul-item">
-      {{#each expenses}}
+    <div id="expense-output">
+      <hr class="hr-line-grp">
+      <h3 class="h3-heading">Expenses</h3>
+      <ul class="ul-item">
+        {{#each expenses}}
         {{#if exp}}
         <li class="line-item"><span class="line-title">Category: </span>{{categoryName}}</li>
-          <li class="line-item"><span class="line-title">Expense Name: </span>{{expenseName}}</li>
-          <li class="line-item"><span class="line-title">Amount: </span>{{amount}}</li>
-          <li class="line-item"><span class="line-title">Date: </span>{{date}}</li>
-          <button class="delete-expense" data-id= "{{id}}">Delete</button>
-          <hr class="hr-line-grp">
+        <li class="line-item"><span class="line-title">Expense Name: </span>{{expenseName}}</li>
+        <li class="line-item"><span class="line-title">Amount: </span>{{amount}}</li>
+        <li class="line-item"><span class="line-title">Date: </span>{{date}}</li>
+        <button class="delete-expense" data-id="{{id}}">Delete</button>
+        <hr class="hr-line-grp">
         {{/if}}
-       {{/each}}
-    </ul>
-  </div>
+        {{/each}}
+      </ul>
+    </div>
 
 
 
-  <div id="income-output">
-    <hr class="hr-line-grp">
-    <h3 class="h3-heading">Income</h3>
-    <ul class="ul-item">
-      {{#each expenses}}
+    <div id="income-output">
+      <hr class="hr-line-grp">
+      <h3 class="h3-heading">Income</h3>
+      <ul class="ul-item">
+        {{#each expenses}}
         {{#if cash}}
         <li class="line-item"><span class="line-title">Category: </span>{{categoryName}}</li>
-          <li class="line-item"><span class="line-title">ExpenseName: </span>{{expenseName}}</li>
-          <li class="line-item"><span class="line-title">Amount: </span>{{amount}}</li>
-          <li class="line-item"><span class="line-title">Date: </span>{{date}}</li>
-          <button class="delete-expense" data-id= "{{id}}">Delete</button>
+        <li class="line-item"><span class="line-title">ExpenseName: </span>{{expenseName}}</li>
+        <li class="line-item"><span class="line-title">Amount: </span>{{amount}}</li>
+        <li class="line-item"><span class="line-title">Date: </span>{{date}}</li>
+        <button class="delete-expense" data-id="{{id}}">Delete</button>
         {{/if}}
-       {{/each}}
-    </ul>
-  </div>
+        {{/each}}
+      </ul>
+    </div>
 
-  <div id="savings-output">
-    <hr class="hr-line-grp">
-    <h3 class="h3-heading">Savings</h3>
-    <ul class="ul-item">
-      {{#each expenses}}
+    <div id="savings-output">
+      <hr class="hr-line-grp">
+      <h3 class="h3-heading">Savings</h3>
+      <ul class="ul-item">
+        {{#each expenses}}
         {{#if save}}
         <li class="line-item"><span class="line-title">Category: </span>{{categoryName}}</li>
-          <li class="line-item"><span class="line-title">ExpenseName: </span>{{expenseName}}</li>
-          <li class="line-item"><span class="line-title">Amount: </span>{{amount}}</li>
-          <li class="line-item"><span class="line-title">Date: </span>{{date}}</li>
-          <button class="delete-expense" data-id= "{{id}}">Delete</button>
+        <li class="line-item"><span class="line-title">ExpenseName: </span>{{expenseName}}</li>
+        <li class="line-item"><span class="line-title">Amount: </span>{{amount}}</li>
+        <li class="line-item"><span class="line-title">Date: </span>{{date}}</li>
+        <button class="delete-expense" data-id="{{id}}">Delete</button>
         {{/if}}
-       {{/each}}
-    </ul>
-  </div>
+        {{/each}}
+      </ul>
+    </div>
 
-  <div id="budget-output">
-    <hr class="hr-line-grp">
-    <h3 class="h3-heading">Budget</h3>
-    <ul class="ul-item">
-      {{#each expenses}}
+    <div id="budget-output">
+      <hr class="hr-line-grp">
+      <h3 class="h3-heading">Budget</h3>
+      <ul class="ul-item">
+        {{#each expenses}}
         {{#if budget}}
         <li class="line-item"><span class="line-title">Category: </span>{{categoryName}}</li>
-          <li class="line-item"><span class="line-title">ExpenseName: </span>{{expenseName}}</li>
-          <li class="line-item"><span class="line-title">Amount: </span>{{amount}}</li>
-          <li class="line-item"><span class="line-title">Date: </span>{{date}}</li>
-          <button class="delete-expense" data-id= "{{id}}">Delete</button>
+        <li class="line-item"><span class="line-title">ExpenseName: </span>{{expenseName}}</li>
+        <li class="line-item"><span class="line-title">Amount: </span>{{amount}}</li>
+        <li class="line-item"><span class="line-title">Date: </span>{{date}}</li>
+        <button class="delete-expense" data-id="{{id}}">Delete</button>
         {{/if}}
-       {{/each}}
-    </ul>
+        {{/each}}
+      </ul>
+    </div>
+
+
+
   </div>
-
-
-  
-</div>
