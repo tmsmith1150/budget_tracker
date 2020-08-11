@@ -9,20 +9,18 @@ form.login {
 }
 
 body {
-  background: rgb(252, 255, 254);
+ 
   background: linear-gradient(
     309deg,
-    rgba(252, 255, 254, 0.9724264705882353) 34%,
-    rgba(205, 205, 205, 1) 80%
-  );
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: turquoise;
-  min-height: 100vh;
+    rgba(233, 252, 251, 0.972) 34%,
+    rgb(184, 212, 212) 80%);
+  background-repeat: -y;
+  background-size: auto;
+  height: 100%;
+  
 }
+
+
 
 .col-md {
   position: absolute;
@@ -143,10 +141,8 @@ table.center {
   margin-bottom: 20px;
   text-align: center;
 }
-/* #page-container {
-  position: relative;
-  min-height: 100vh;
-} */
+
+
 
 .btn-search {
   width: 90px;
@@ -241,48 +237,118 @@ table.center {
   margin-top: 10px;
 }
 
-/* #dsply-all-ctgy {
-  width: 600px;
-  height: 600px;
-  background-color: grey;
-  margin-top: 10%;
-  margin-left: 30%;
-} */
 
-#expense-output {
-  width: 450px;
-  height: 350px;
-  background-color: rgb(45, 169, 218);
-  margin-left: 32%;
+
+
+.h3-heading {
+  font-size: 30px;
+  margin-top: 40px;
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: rgb(52, 89, 158);
+  background: linear-gradient(
+    309deg,
+    rgba(7, 223, 175, 0.9724264705882353) 17%,
+    rgba(8, 237, 233, 1) 66%
+  );
+}
+
+
+.ul-item {
+  width: 1107px;
+  background-color: white;
+  margin-top: 15px;
+  margin-left: 2px;
   margin-bottom: 10%;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  list-style-type: none;
+  
 }
 
-#bills-output {
-  width: 450px;
-  height: 350px;
-  background-color: rgb(148, 208, 231);
-  margin-left: 32%;
-  margin-bottom: 10%;
+
+.line-title {
+  font-size: 18px;
+  color: rgb(80, 87, 150);
+  font-weight: 600;
 }
 
-#pie-chart {
-  width: 250px;
-  height: 250px;
-  float: right;
-  background-color: rgb(148, 208, 231);
-  margin-top: 5%;
-  margin-right: 10%;
+
+.line-item {
+  margin-left: 30px;
+ 
+  font-size: 15px;
 }
+
+
+.hr-line-grp {
+  height: 12px;
+  border: 0;
+  box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+
+
+.pay-bill {
+  background-color: rgb(89, 234, 236);
+  border-radius: 15px;
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  
+}
+
+
+.pay-bill:hover {
+  background-color: #52f0b1;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+
+.delete-bill {
+  background-color: rgb(247, 71, 65);
+  border-radius: 15px;
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  margin-left: 50px;
+}
+
+
+.delete-bill:hover {
+  background-color: #f3b034;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+
+.delete-expense {
+  background-color: rgb(247, 71, 65);
+  border-radius: 15px;
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  margin-left: 50px;
+}
+
+
+.delete-expense:hover {
+  background-color: #f3b034;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+
 
 .exp-cht {
   font-size: 20px;
   width: 400px;
 }
 
-/* .row {
-  margin-left: 5%;
-  margin-top: 10%;
-} */
 
 .alt-link {
   font-size: 20px;
@@ -344,12 +410,6 @@ table.center {
 
 
 
-
-.ul-item {
-   width: 800px;
-   background-color: coral;
-   margin-top: 10px;
-}
 
 
 @media screen and (max-width: 600px) {

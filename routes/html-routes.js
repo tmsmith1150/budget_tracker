@@ -89,6 +89,15 @@ module.exports = function(app) {
     // res.render("overview", hbsOb);
   });
 
+  app.get("/charts", (req, res) => {
+    // If the user already has an account send them to the overview page
+    if (req.user) {
+      // res.redirect("/overview");
+    }
+    res.render("charts");
+  });
+  
+
 
   app.get("/bills", (req, res) => {
     // If the user already has an account send them to the overview page
