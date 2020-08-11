@@ -66,20 +66,25 @@ module.exports = function(app) {
 //   });
 // });
 
-// Route for deleting Bill pnce paid
-app.delete("/bills/deletebill/:id", function(req, res) {
+// Route for deleting Bill once paid
+app.delete("views/bills/deletebill/:id", function(req, res) {
   // We just have to specify which todo we want to destroy with "where"
   console.log("delete bill")
   console.log(req.params)
   console.log(req.body)
   db.Bill.destroy({
     where: {
-      id: req.params.id
+      
+      id: req.params.id,
+      
     }
-  })
-  .then(() => {
-    res.redirect("/api/bills");
     
+  })
+
+  .then(() => {
+console.log("delete");
+    res.render("/api/bills");
+    // location.reload();
   })
   .catch(err => {
     res.status(401).json(err);
@@ -99,7 +104,7 @@ app.delete("/bills/deletebill/:id", function(req, res) {
       userId: req.user.id
     })
     .then(() => {
-      res.redirect("/api/index");
+      res.redirect("./views/index");
     })
     .catch(err => {
       res.status(401).json(err);
