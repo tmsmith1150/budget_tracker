@@ -140,14 +140,9 @@
     // Send the DELETE request.
     $.ajax("/bills/deletebill/" + id, {
       type: "DELETE"
-    }).then(
-      function() {
-        console.log("deleted bill", id);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
+    })
+  })
+  
 
 
 });

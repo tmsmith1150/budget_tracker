@@ -78,7 +78,8 @@ app.delete("/bills/deletebill/:id", function(req, res) {
     }
   })
   .then(() => {
-    res.redirect("/api/bills");
+    res.redirect(404, "/bills");
+   console.log("redirect to bills")
     
   })
   .catch(err => {
