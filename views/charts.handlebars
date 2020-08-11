@@ -45,24 +45,3 @@
     </div>
 
   </div>
-
-
-
-  <hr class="hr-line-grp">
-    <h3 class="h3-heading">Bills</h3>
-  
-    <ul class="ul-item">
-      {{#each bills}}
-          
-          <span<li class="line-item"><span class="line-title">Bill Name: </span>{{billName}}</li>
-          <li class="line-item"><span class="line-title">Website: </span>{{website}}</li>
-          <li class="line-item"><span class="line-title">Date: </span>{{dueDate}}</li>
-          <button class="delete-bill" data-id= "{{id}}">Delete</button>
-          <button class="pay-bill" data-id= "{{id}}" + "{{website}}">Pay Bill</button>
-          <hr class="hr-line-grp">
-      {{/each}}
-    </ul>
-    
-    
-  </div>
-  </div>
