@@ -94,13 +94,6 @@ module.exports = function (app) {
     // res.render("overview", hbsOb);
   });
 
-  app.get("/charts", (req, res) => {
-    // If the user already has an account send them to the overview page
-    if (req.user) {
-      // res.redirect("/overview");
-    }
-    res.render("charts");
-  });
 
 
 
@@ -119,6 +112,7 @@ module.exports = function (app) {
 
 
   app.get("/charts", (req, res) => {
+    console.log("Check Charts")
     // If the user already has an account send them to the overview page
     if (!req.user) {
       res.redirect(307, "/login");
@@ -144,7 +138,7 @@ module.exports = function (app) {
         )
       }
       console.log(hbsChart)
-      res.render("overview", hbsChart);
+      res.render("charts", hbsChart);
     });
 
   });
