@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const Sequelize = require("sequelize")
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -67,7 +68,7 @@ module.exports = function(app) {
 // });
 
 // Route for deleting Bill once paid
-app.delete("views/bills/deletebill/:id", function(req, res) {
+app.delete("/api/bills/deletebill/:id", function(req, res) {
   // We just have to specify which todo we want to destroy with "where"
   console.log("delete bill")
   console.log(req.params)
@@ -84,6 +85,30 @@ app.delete("views/bills/deletebill/:id", function(req, res) {
   .then(() => {
 console.log("delete");
     res.render("/api/bills");
+    // location.reload();
+  })
+  .catch(err => {
+    res.status(401).json(err);
+  });
+
+});
+app.delete("/api/overview/deleteexpense/:id", function(req, res) {
+  // We just have to specify which todo we want to destroy with "where"
+  console.log("delete expense")
+  console.log(req.params)
+  console.log(req.body)
+  db.Expense.destroy({
+    where: {
+      
+      id: req.params.id,
+      
+    }
+    
+  })
+
+  .then(() => {
+console.log("delete");
+    res.render("/api/overview");
     // location.reload();
   })
   .catch(err => {

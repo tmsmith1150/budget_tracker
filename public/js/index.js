@@ -1,4 +1,6 @@
-  $(document).ready(function() {
+ 
+ 
+ $(document).ready(function() {
 
   const addBillForm = $("form.billInfo");
   const billInputName = $("input#billInputName");
@@ -134,11 +136,11 @@
   // });
 
 
-  $(".delete-bill").on("click", function(event) {
+  $(".delete-bill").click(function(event) {
     var id = $(this).data("id");
     console.log(id)
     // Send the DELETE request.
-    $.ajax("views/bills/deletebill/" + id, {
+    $.ajax("/api/bills/deletebill/" + id, {
       type: "DELETE"
       
     })
@@ -146,10 +148,27 @@
     .then(function() {
         console.log("deleted bill", id);
         // Reload the page to get the updated list
-        location.reload()
+        location.reload();
+        return false;
       }
     );
   });
 
-
+  $(".delete-expense").click(function(event) {
+    var id = $(this).data("id");
+    console.log(id)
+    // Send the DELETE request.
+    $.ajax("/api/overview/deleteexpense/" + id, {
+      type: "DELETE"
+      
+    })
+  
+    .then(function() {
+        console.log("deleted expense", id);
+        // Reload the page to get the updated list
+        location.reload();
+        return false;
+      }
+    );
+  });
 });
