@@ -14,10 +14,11 @@ body {
     309deg,
     rgba(233, 252, 251, 0.972) 34%,
     rgb(184, 212, 212) 80%);
-  background-repeat: -y;
-  background-size: auto;
-  height: 100%;
-  
+  background-position: center;
+    background-size: cover;
+    background-repeat: -y;
+  height: 100vh;
+  overflow-x: hidden
 }
 
 
@@ -277,7 +278,6 @@ table.center {
 
 .line-item {
   margin-left: 30px;
- 
   font-size: 15px;
 }
 

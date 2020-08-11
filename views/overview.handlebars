@@ -1,4 +1,4 @@
-<div class="container containerPage">
+<div class="container">
 
   <header id="header" class="header-1">
     <img src="../assets/css/images/budget_tracker_wordmark.svg" width="700" alt="budgetTrackerLogo"
@@ -52,7 +52,10 @@
 
   </div>
 
-  <div id"container">
+
+<div class = "jumbotron-fluid">
+<div id = "container">
+
 
 
     <div id="expense-output">
@@ -62,11 +65,13 @@
         {{#each expenses}}
         {{#if exp}}
         <li class="line-item"><span class="line-title">Category: </span>{{categoryName}}</li>
+
         <li class="line-item"><span class="line-title">Expense Name: </span>{{expenseName}}</li>
         <li class="line-item"><span class="line-title">Amount: </span>{{amount}}</li>
         <li class="line-item"><span class="line-title">Date: </span>{{date}}</li>
         <button class="delete-expense" data-id="{{id}}">Delete</button>
         <hr class="hr-line-grp">
+
         {{/if}}
         {{/each}}
       </ul>
@@ -124,4 +129,9 @@
 
 
 
-  </div>
+
+  
+</div>
+</div>
+</div>
+
