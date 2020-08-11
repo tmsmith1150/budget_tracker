@@ -351,3 +351,25 @@ table.center {
    margin-top: 10px;
 }
 
+
+@media screen and (max-width: 600px) {
+  .navbar, .header, img {
+      scale: 20%;
+  }
+
+
+  .text {
+      margin: 30px 30px 30px 30px;
+      font-size: 15px;
+  }
+
+  .jumbotronSignup, .jumbotronOverview, .jumbotronIndex, .jumbotronLogin, .jumbotron-fluid {
+      height: 100%;
+      margin-top: 0px;
+      margin-left: 15%;
+      margin-right: 15%;
+      padding-top: 0px;
+      padding-bottom: 0px;
+  }
+
+}
