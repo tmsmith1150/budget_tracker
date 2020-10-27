@@ -4,3 +4,5 @@ Budget Tracker is a web application that allows the user to track expenses, savi
 Tech Used: Tech Used: MySql, Express, Node.js, Handlebars, Bootstrap, ESLint, TravisCI, and this project is deployed to Heroku.
 
 Check out the website! https://frozen-plains-26882.herokuapp.com/
+
+![] (budget-tracker-example.gif)
