@@ -5,4 +5,4 @@ Tech Used: Tech Used: MySql, Express, Node.js, Handlebars, Bootstrap, ESLint, Tr
 
 Check out the website! https://frozen-plains-26882.herokuapp.com/
 
-![] (budget-tracker-example.gif)
+! [] (budget-tracker-example.gif)
